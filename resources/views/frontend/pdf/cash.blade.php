@@ -275,13 +275,8 @@
             <tr>
                         <td style="line-height: 1.4;font-size:13px;">
                         	હોસ્પિટલ માં ઉપલબ્ધ સુવિધા :	<br>
-                            ૧. આંખ ની તાપસ	<br>
-                            ૨. દાંત ની સારવાર	<br>
-                            ૩. શરીર ના તમામ રોગો ની સારવાર ( ફિઝિશિયન )	<br>
-                            ૪. નવજાત શિશુ ની સારવાર	<br>
-                            ૫.પ્રસુતિગૃહ	<br>
-                            ૬.લેબોરેટોરી , એક્સ રે , સોનોગ્રાફી <br>	
-                            ૭.ફિઝિયોથેરાપી	<br>
+                            ૧. આંખ ની તાપસ - ૨. દાંત ની સારવાર	- ૩. શરીર ના તમામ રોગો ની સારવાર ( ફિઝિશિયન )	<br>
+                            ૪. નવજાત શિશુ ની સારવાર - ૫.પ્રસુતિગૃહ - ૬.લેબોરેટોરી , એક્સ રે , સોનોગ્રાફી - ૭.ફિઝિયોથેરાપી <br>
                             </td>
                         </tr>
         </table>
@@ -306,7 +301,7 @@
                         </tr>
                         <tr>
                         <td style="text-align: right;"><strong>UNIQUE ID NO. : </strong></td>
-                        <td  style="text-align: left; padding-left: 10px;">{!! $booking->id . $booking->patient->id . $booking->queue_number !!}</td>
+                        <td  style="text-align: left; padding-left: 10px;">{!!  $booking->patient->patient_number !!}</td>
                         </tr>
                         <tr>
                         <td style="text-align: right;"><strong>તારીખ : </strong></td>
