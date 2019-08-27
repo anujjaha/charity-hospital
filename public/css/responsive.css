@@ -1,0 +1,82 @@
+@media (min-width: 1200px){
+.container {
+    max-width: 1030px;
+}
+}
+@media (min-width: 1200px){
+.listing-product .container {
+    max-width: 1170px;
+}
+}
+@media (max-width: 1199px) {
+    .reg-form { padding: 25px;}
+}
+@media (min-width:1600px) {
+/*.slick-list { margin-top: 12%;}*/
+}
+@media (min-width:1900px) {
+/*.slick-list { margin-top:22%;}*/
+}
+@media (min-width:2500px) {
+/*.slick-list { margin-top:35%;}*/
+}
+
+@media (max-width: 1024px) {
+.navbar-dark .navbar-nav .nav-link { margin:0 1rem -1px 1rem }
+.boxes { width: 300px; margin: 1rem;}
+#footer ul.footer-link li { padding: 5px 3px;}
+#footer ul.footer-link li a { letter-spacing: 0; font-size: 11px;}
+.mr-0 { margin-right: 5px !important;}
+#footer ul.footer-social li { margin:0 5px; }
+.newsletter { width: 160px;}
+.boxes { width: 270px; margin: 1rem; }
+}
+
+@media (min-width: 991px) and (max-width: 1199px){
+    ul.social-link li { margin: 0px 5px;}
+    ul.footer-link li {    padding: 5px 5px;}
+    ul.footer-link li:after { left: 5px;}
+}
+
+@media (max-width: 991px) {
+.boxes { width: 250px; margin: 0.5rem; }
+#header { padding: 15px 0;}
+.navbar { margin-top: 15px; background-color:#000; }
+.navbar-dark .navbar-toggler { border: 0; color: #fff;}
+.navbar-dark .navbar-nav .nav-link { padding:10px 0;}
+.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link{ border-bottom: 0!important;}
+.home-bg { background-position: 75% top;}
+.home-bg .h-100 { height: auto!important;}
+.sap { display: none;}
+.pd-sap { display: none!important; height: auto!important;}
+.cart-head { text-align: center;}
+.cart-head span { float: none;}
+}
+
+@media (max-width: 767px) {
+h1 { font-size: 34px;}
+h2 { font-size: 24px;}
+#header { padding-top: 15px; position: relative;}
+.reg-form { padding: 15px;}
+.global-search { margin-bottom: 10px; }
+#footer { position: relative;}
+#main-container { padding: 15px 0;}
+.slick-next { right: -20px;}
+.slick-prev { left: -20px;}
+#category-list-slider { height: 250px;}
+}
+@media (max-width: 575px) {
+.logo { padding-bottom: 15px;}
+}
+
+
+@media (min-width: 1441px) {
+    #main-container {
+        min-height: 350px;
+        height: 100vh;
+        height: -moz-calc(100vh - 290px);
+        height: -webkit-calc(100vh - 290px);
+        height: calc(100vh - 290px);
+    }
+    #main-container.listing-height {min-height: 550px;}
+}
