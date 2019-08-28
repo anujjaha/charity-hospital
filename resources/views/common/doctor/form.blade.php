@@ -19,7 +19,16 @@
             {{ Form::text('designation', null, ['class' => 'form-control', 'placeholder' => 'Designation', 'required' => 'required']) }}
         </div>
     </div>
-</div><div class="box-body">
+</div>
+<div class="box-body">
+    <div class="form-group">
+        {{ Form::label('fees', 'Consulting Fees :', ['class' => 'col-lg-2 control-label']) }}
+        <div class="col-lg-10">
+            {{ Form::number('fees', null, ['min' => 0, 'step' => 1, 'class' => 'form-control', 'required' => 'required']) }}
+        </div>
+    </div>
+</div>
+<div class="box-body">
     <div class="form-group">
         {{ Form::label('mobile', 'Mobile :', ['class' => 'col-lg-2 control-label']) }}
         <div class="col-lg-10">

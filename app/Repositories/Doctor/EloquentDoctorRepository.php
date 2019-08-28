@@ -36,6 +36,7 @@ class EloquentDoctorRepository extends DbRepository
         'id'                => 'Id',
         'department'        => 'Department',
         'name'              => 'Name',
+        'fees'              => 'Consulting Fees',
         'designation'       => 'Designation',
         'mobile'            => 'Mobile',
         'notes'             => 'Notes',
@@ -67,7 +68,13 @@ class EloquentDoctorRepository extends DbRepository
                 'searchable'    => true,
                 'sortable'      => true
             ],
-		'designation' =>   [
+		'fees' =>   [
+                'data'          => 'fees',
+                'name'          => 'fees',
+                'searchable'    => true,
+                'sortable'      => true
+            ],
+        'designation' =>   [
                 'data'          => 'designation',
                 'name'          => 'designation',
                 'searchable'    => true,

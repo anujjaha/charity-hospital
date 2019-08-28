@@ -220,7 +220,7 @@ public function user()
             return implode(', ', $surgeryData);
         }
 
-        return '';
+        return '-';
     }
 
     public function getUserDepartment($user = null)

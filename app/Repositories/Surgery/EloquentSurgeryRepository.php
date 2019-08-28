@@ -9,6 +9,7 @@
 use App\Models\Surgery\Surgery;
 use App\Repositories\DbRepository;
 use App\Exceptions\GeneralException;
+use App\Models\Department\Department;
 
 class EloquentSurgeryRepository extends DbRepository
 {
@@ -32,13 +33,14 @@ class EloquentSurgeryRepository extends DbRepository
      * @var array
      */
     public $tableHeaders = [
-        'id'        => 'Id',
-        'title'        => 'Title',
-        'fees'        => 'Fees',
-        'notes'        => 'Notes',
+        'id'            => 'Id',
+        'title'         => 'Title',
+        'department'    => 'Department',
+        'fees'          => 'Fees',
+        'notes'         => 'Notes',
         'status'        => 'Status',
-        'created_at'        => 'Created At',
-        "actions"         => "Actions"
+        'created_at'    => 'Created At',
+        "actions"       => "Actions"
     ];
 
     /**
@@ -58,6 +60,12 @@ class EloquentSurgeryRepository extends DbRepository
                 'name'          => 'title',
                 'searchable'    => true,
                 'sortable'      => true
+            ],
+        'department' =>   [
+                'data'          => 'department',
+                'name'          => 'department',
+                'searchable'    => true,
+                'sortable'      => false
             ],
 		'fees' =>   [
                 'data'          => 'fees',
@@ -159,7 +167,8 @@ class EloquentSurgeryRepository extends DbRepository
      */
     public function __construct()
     {
-        $this->model = new Surgery;
+        $this->model        = new Surgery;
+        $this->department   = new Department;
     }
 
     /**
@@ -258,7 +267,8 @@ class EloquentSurgeryRepository extends DbRepository
     public function getTableFields()
     {
         return [
-            $this->model->getTable().'.*'
+            $this->model->getTable().'.*',
+            $this->department->getTable().'.name as department'
         ];
     }
 
@@ -267,7 +277,9 @@ class EloquentSurgeryRepository extends DbRepository
      */
     public function getForDataTable()
     {
-        return $this->model->select($this->getTableFields())->get();
+        return $this->model->select($this->getTableFields())
+            ->leftjoin($this->department->getTable(), $this->department->getTable().'.id', '=', $this->model->getTable().'.department_id')
+            ->get();
     }
 
     /**

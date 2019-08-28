@@ -226,7 +226,7 @@
                             </td>
                             <td>
                                 બીલ નં : {!! $booking->id !!}<br>
-                                તારીખ : {!! date('m-d-Y', strtotime($booking->created_at)) !!}<br>
+                                તારીખ : {!! date('d-m-Y', strtotime($booking->created_at)) !!}<br>
                                 મોબાઈલ નંબર : {!! $booking->patient->mobile !!}	
                             </td>
                         </tr>

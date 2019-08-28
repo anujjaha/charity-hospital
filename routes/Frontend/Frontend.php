@@ -107,5 +107,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::any('history', 'DashboardController@history')->name('history.list');
         Route::any('receipt/{id}/print', 'DashboardController@print')->name('receipt.print');
         
+        Route::any('history/print', 'DashboardController@printHistory')->name('history.print');
+        
     });
 });

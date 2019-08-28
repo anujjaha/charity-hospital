@@ -47,12 +47,12 @@
                         <label for="">Valid For (In Month)</label>
                         <select  name="patient_validity" class="form-control">
                             <option>Select</option>
-                            <option>01</option>
-                            <option>02</option>
-                            <option>03</option>
-                            <option>04</option>
-                            <option>05</option>
-                            <option>06</option>
+                            <option value="1">01</option>
+                            <option value="2">02</option>
+                            <option value="3">03</option>
+                            <option value="4">04</option>
+                            <option value="5">05</option>
+                            <option value="6">06</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -96,12 +96,12 @@
                         <label for="">Valid For (In Month)</label>
                         <select required="required" name="patient_validity" id="patient_validity" class="form-control">
                             <option>Select</option>
-                            <option>01</option>
-                            <option>02</option>
-                            <option selected>03</option>
-                            <option>04</option>
-                            <option>05</option>
-                            <option>06</option>
+                            <option value="1">01</option>
+                            <option value="2">02</option>
+                            <option value="3">03</option>
+                            <option value="4">04</option>
+                            <option value="5">05</option>
+                            <option value="6">06</option>
                         </select>
                     </div>
     

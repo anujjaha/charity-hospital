@@ -46,9 +46,9 @@ class FrontendController extends Controller
         $surgeries  = Surgery::where($condition)->get();
 
         return view('frontend.index')->with([
-            'doctors'   => $doctors,
-            'allDoctors' => $allDoctors,
-            'surgeries' => $surgeries
+            'doctors'       => $doctors,
+            'allDoctors'    => $allDoctors,
+            'surgeries'     => $surgeries
         ]);
     }
 

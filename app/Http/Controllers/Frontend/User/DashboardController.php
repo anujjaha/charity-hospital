@@ -13,6 +13,8 @@ use App\Models\Department\Department;
 use App\Models\Doctor\Doctor;
 use App\Models\PatientSurgery\PatientSurgery;
 use Barryvdh\DomPDF\Facade as PDF;
+use Carbon\Carbon;
+use Response;
 
 /**
  * Class DashboardController.
@@ -458,20 +460,31 @@ class DashboardController extends Controller
 
     public function history(Request $request)
     {
-        $today = date('d-m-Y');
+        $startDate  = date('Y-m-d', strtotime('-2 months')) . ' 00:00:00';
+        $endDate    = date('Y-m-d') . ' 23:59:59';
+        $input      = $request->all();
 
-        if($request->has('filterDate'))
+        if($request->has('startDate') && $request->has('endDate'))
         {
-            $today = $request->get('filterDate');
-        }
+            $dateInput = explode("-", $input['startDate']);
+            $customDate = $dateInput[1] . '/' . $dateInput[0]. '/'. $dateInput[2];
+            $startDate = Carbon::parse($customDate)->format('Y-m-d') . ' 00:00:00';
 
-        $bookings = Booking::where('booking_date', $today)->with(['doctor', 'patient', 'surgeries', 'surgeries.surgery'])
-        ->orderBy('id', 'desc')
-        ->get();
+            $dateInput = explode("-", $input['endDate']);
+            $customDate = $dateInput[1] . '/' . $dateInput[0]. '/'. $dateInput[2];
+            $endDate    = Carbon::parse($endDate)->format('Y-m-d') . ' 23:59:59';;
+        }
+        
+        $bookings = Booking::where('created_at', '>=', $startDate)
+            ->where('created_at', '<=', $endDate)
+            ->with(['doctor', 'patient', 'surgeries', 'surgeries.surgery'])
+            ->orderBy('id', 'desc')
+            ->get();
         
         return view('frontend.booking.list')->with([
-            'bookings' => $bookings,
-            'today'     => $today
+            'bookings'      => $bookings,
+            'startDate'     => $startDate,
+            'endDate'       => $endDate
         ]);
     }
 
@@ -489,5 +502,58 @@ class DashboardController extends Controller
         return view('frontend.pdf.cash')->with([
             'booking' => $booking
         ]);
+    }
+
+    public function printHistory(Request $request)
+    {
+        $startDate  = date('Y-m-d', strtotime('-2 months')) . ' 00:00:00';
+        $endDate    = date('Y-m-d') . ' 23:59:59';
+        $input      = $request->all();
+
+        if($request->has('startDate') && $request->has('endDate'))
+        {
+            $startDate  = $request->get('startDate');
+            $endDate    = $request->get('endDate');
+        }
+        
+        $bookings = Booking::where('created_at', '>=', $startDate)
+            ->where('created_at', '<=', $endDate)
+            ->with(['doctor', 'patient', 'surgeries', 'surgeries.surgery'])
+            ->orderBy('id', 'desc')
+            ->get();
+
+        $filename = "report.csv";
+        $handle = fopen($filename, 'w+');
+        
+        fputcsv($handle, [
+                'Department',
+                'Patient Name',
+                'Patient Number',
+                'Doctor',
+                'Fees',
+                'Total',
+                'Surgery'
+            ]);
+            
+        foreach($bookings as $booking) 
+        {
+            fputcsv($handle, [
+                'dept'      => access()->getUserDepartment(),
+                'name'      => $booking->patient->name,
+                'number'    => $booking->patient->patient_number,
+                'doctor'    => $booking->doctor->name,
+                'fees'      => $booking->consulting_fees,
+                'total'     => $booking->total,
+                'surgery'   => isset($booking->surgeries) ? access()->getBookingSurgeries($booking->surgeries) : '-'
+            ]);
+        }
+
+        fclose($handle);
+
+        $headers = array(
+            'Content-Type' => 'text/csv',
+        );
+
+        return Response::download($filename, 'report.csv', $headers);
     }
 }

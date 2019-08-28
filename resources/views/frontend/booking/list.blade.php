@@ -22,10 +22,16 @@
                 </div>
               <div class="pull-right">
               <form method="post" action="{!! route('frontend.user.history.list') !!}" id="filter">
-                <input type="text" id="filterDate" name="filterDate" value="{!! $today !!}">
+                <input class="datepicker" type="text" id="startDate" name="startDate" value="{!! date('d-m-Y', strtotime($startDate)) !!}">
+                <input  class="datepicker" type="text" id="endDate" name="endDate" value="{!! date('d-m-Y', strtotime($endDate)) !!}">
                 {{ csrf_field() }}
                   <input type="submit" name="save-new" value="Filter"  class="btn btn-success mr-2 mt-1">
-
+                <a href="{!! route('frontend.user.history.print', [
+                  'startDate' => $startDate,
+                  'endDate'   => $endDate
+                ]) !!}" class="btn btn-primary mr-2 mt-1" target="_blank">
+                  Print
+                </a>
               </form>
             </div>
         <div class="row">
@@ -100,7 +106,7 @@
         jQuery('#all-listing').dataTable({
           "order": [[ 0, "desc" ]]
         });
-        jQuery("#filterDate").datepicker({
+        jQuery(".datepicker").datepicker({
           format: 'dd-mm-yyyy',
         });
     })
