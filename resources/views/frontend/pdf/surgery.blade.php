@@ -258,7 +258,7 @@
                                                     ({!! $surgery->notes !!})
                                                     </td>
                                                     <td style="border-bottom: 1px solid gray;">
-                                                    {!! $surgery->surgery->fees !!}/-</td>
+                                                    {!! number_format($surgery->surgery->fees, 2) !!}/-</td>
                                                 </tr>
                                                 @php
                                                     $sr++;
@@ -280,7 +280,7 @@
                                                    <strong>Total</strong>
                                                 </td>
                                                 <td style="border-bottom: 1px solid gray;">
-                                                <strong>{!! $total !!}</strong>
+                                                <strong>{!! number_format($total, 2) !!}/-</strong>
                                                 </td>
                                             </tr>
 
@@ -302,17 +302,12 @@
                 </td>
             </tr>
             <tr>
-                        <td style="line-height: 1.4;font-size:13px;">
-                        	હોસ્પિટલ માં ઉપલબ્ધ સુવિધા :	<br>
-                            ૧. આંખ ની તાપસ	<br>
-                            ૨. દાંત ની સારવાર	<br>
-                            ૩. શરીર ના તમામ રોગો ની સારવાર ( ફિઝિશિયન )	<br>
-                            ૪. નવજાત શિશુ ની સારવાર	<br>
-                            ૫.પ્રસુતિગૃહ	<br>
-                            ૬.લેબોરેટોરી , એક્સ રે , સોનોગ્રાફી <br>	
-                            ૭.ફિઝિયોથેરાપી	<br>
-                            </td>
-                        </tr>
+                <td style="line-height: 1.4;font-size:13px;">
+                    હોસ્પિટલ માં ઉપલબ્ધ સુવિધા :    <br>
+                    ૧. આંખ ની તાપસ - ૨. દાંત ની સારવાર  - ૩. શરીર ના તમામ રોગો ની સારવાર ( ફિઝિશિયન )   <br>
+                    ૪. નવજાત શિશુ ની સારવાર - ૫.પ્રસુતિગૃહ - ૬.લેબોરેટોરી , એક્સ રે , સોનોગ્રાફી - ૭.ફિઝિયોથેરાપી <br>
+                </td>
+            </tr>
         </table>
     </div>
 </body>

@@ -54,6 +54,9 @@
                   </tr>
                 </thead>
                 <tbody>
+                    @php
+                      $total = 0;
+                    @endphp
                     @if(isset($bookings))
                         @foreach($bookings as $booking)
                             <tr class="erow">
@@ -77,7 +80,21 @@
                                   </a>
                                 </td>
                             </tr>
+                            @php
+                              $total  = $total + $booking->total; 
+                            @endphp
                         @endforeach
+                          <tr>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>{!! $total !!}</td>
+                            <td>-</td>
+                            <td>-</td>
+                          </tr>
                     @endif
                 </tbody>
               </table>
