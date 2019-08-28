@@ -259,10 +259,16 @@ class DashboardController extends Controller
         
         if(isset($input['surgery_id']) || isset($input['doctor_id']))
         {
-            $surgeries  = Surgery::whereIn('id', $input['surgery_id'])->get();
             $doctor     = Doctor::where('id', $input['doctor_id'])->first();
             $patient    = Patient::where('patient_number', $input['new_patient_id'])->first();
             $consulting = 0;
+            $surgeryTotal = 0;
+
+            if(isset($input['surgery_id']))
+            {
+                $surgeries      = Surgery::whereIn('id', $input['surgery_id'])->get();
+                $surgeryTotal   = $surgeries->sum('fees');
+            }
 
             if(isset($input['general']) && $input['general'] == 'general')
             {
@@ -279,7 +285,7 @@ class DashboardController extends Controller
                 'doctor_id'     => $input['doctor_id'],
                 'queue_number'  => access()->getQueueNumber(),
                 'consulting_fees' => $consulting,
-                'total'         => $consulting + $surgeries->sum('fees'),
+                'total'         => $consulting + $surgeryTotal,
                 'booking_date'  => date('d-m-Y'),
                 'notes'         => 'New Surgery Created'
             ];
@@ -288,26 +294,29 @@ class DashboardController extends Controller
 
             $patientSurgery = [];
 
-            foreach($surgeries as $surgery)
+            if(isset($surgeries) && count($surgeries))
             {
-                $patientSurgery[] = [
-                    'booking_id'    => $booking->id,
-                    'patient_id'    => $patient->id,
-                    'doctor_id'     => $input['doctor_id'],
-                    'surgery_id'    => $surgery->id,
-                    'notes'         => $input['surgery_notes'][$surgery->id]
-                ];
-            }
+                foreach($surgeries as $surgery)
+                {
+                    $patientSurgery[] = [
+                        'booking_id'    => $booking->id,
+                        'patient_id'    => $patient->id,
+                        'doctor_id'     => $input['doctor_id'],
+                        'surgery_id'    => $surgery->id,
+                        'notes'         => $input['surgery_notes'][$surgery->id]
+                    ];
+                }
 
-            if(isset($patientSurgery) && count($patientSurgery))
-            {
-                PatientSurgery::insert($patientSurgery);
+                if(isset($patientSurgery) && count($patientSurgery))
+                {
+                    PatientSurgery::insert($patientSurgery);
+                }
             }
 
             return redirect()->route('frontend.user.history.list')->withFlashSuccess('Booking Created Successfully!');
         }
 
-        return redirect()->route('frontend.index')->withFlashDanger('Something weng Wrong!');
+        return redirect()->route('frontend.index')->withFlashDanger('Please Select Doctor or Select Surgery!');
     }
 
     public function getPatientDetails(Request $request)
