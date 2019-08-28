@@ -257,7 +257,7 @@ class DashboardController extends Controller
     {
         $input = $request->all();
         
-        if(isset($input['surgery_id']) && isset($input['doctor_id']))
+        if(isset($input['surgery_id']) || isset($input['doctor_id']))
         {
             $surgeries  = Surgery::whereIn('id', $input['surgery_id'])->get();
             $doctor     = Doctor::where('id', $input['doctor_id'])->first();
