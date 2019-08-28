@@ -46,7 +46,7 @@
                       <th>Doctor</th>
                       <th>Queue Number</th>
                       <th>
-                        {!! trans('labels.patel.fees') !!}
+                        {!! trans('labels.patel.consulting_fees') !!}
                       </th>
                       <th>Total</th>
                       <th>Surgery</th>

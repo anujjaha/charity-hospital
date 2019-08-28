@@ -30,23 +30,23 @@
 
                 <form method="post" action="{!! route('frontend.user.patient.create') !!}" id="add_new" style="display:none;">
                     <div class="form-group">
-                        <label for="">Patient Name</label>
-                        <input name="patient_name" type="text" class="form-control">
+                        <label for="patient_name">{!! trans('labels.patel.patient_name') !!}</label>
+                        <input  required="required" name="patient_name" type="text" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="">Patient Age</label>
-                        <input  name="patient_age" type="number" min="0" max="100" step="1" class="form-control">
+                        <label for="">{!! trans('labels.patel.patient_age') !!}</label>
+                        <input required="required" name="patient_age" type="number" min="0" max="100" step="1" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <label for="">Contact Number</label>
+                        <label for="">{!! trans('labels.patel.patient_contact') !!}</label>
                         <input name="mobile" type="text" class="form-control">
                     </div>
                     
                     <div class="form-group">
-                        <label for="">Valid For (In Month)</label>
-                        <select  name="patient_validity" class="form-control">
-                            <option>Select</option>
+                        <label for="">{!! trans('labels.patel.patient_validity') !!}</label>
+                        <select  required="required" name="patient_validity" class="form-control">
+                            <option value="">Select</option>
                             <option value="1">01</option>
                             <option value="2">02</option>
                             <option value="3">03</option>
@@ -56,7 +56,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="doctor_id">Consult Doctor</label>
+                        <label for="doctor_id">{!! trans('labels.patel.consult_doctor') !!}</label>
                         {{ Form::select('doctor_id', ['' => 'Please select Doctor'] + $doctors, null, [
                             'id'    => 'doctor_id',
                             'class' => 'form-control',
@@ -64,7 +64,7 @@
                         ]) }}
                     </div>
                     <div class="form-group">
-                        <label for="">Consulting Fee</label>
+                        <label for="">{!! trans('labels.patel.consulting_fees') !!}</label>
                         <input required="required" name="fees" id="doctor_fees" type="text" class="form-control">
                     </div>
                     {{ csrf_field() }}
@@ -75,7 +75,7 @@
                 <form method="post" action="{!! route('frontend.user.booking.create') !!}" id="add_old" style="display:none;">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <label for="">Patient ID</label>
+                        <label for="">{!! trans('labels.patel.patient_number') !!}</label>
                         <input type="text" class="form-control" value="" id="patient_id">
                     </div>
                     <div class="form-group">
@@ -85,17 +85,17 @@
 
                     <div id="search_form" style="display:none;">
                     <div class="form-group">
-                        <label for="">Patient Name</label>
+                        <label for="">{!! trans('labels.patel.patient_name') !!}</label>
                         <input required="required" type="text" class="form-control" id="patient_name" value="">
                     </div>
                     <div class="form-group">
-                        <label for="">Patient Age</label>
+                        <label for="">{!! trans('labels.patel.patient_age') !!}</label>
                         <input required="required" type="text" class="form-control" id="patient_age" name="patient_age" value="0">
                     </div>
                     <div class="form-group">
-                        <label for="">Valid For (In Month)</label>
+                        <label for="">{!! trans('labels.patel.patient_validity') !!}</label>
                         <select required="required" name="patient_validity" id="patient_validity" class="form-control">
-                            <option>Select</option>
+                            <option value="">Select</option>
                             <option value="1">01</option>
                             <option value="2">02</option>
                             <option value="3">03</option>
@@ -106,15 +106,27 @@
                     </div>
     
                     <div class="form-group">
-                        <label for="doctor_id">Consult Doctor</label>
+                        <label for="doctor_id">{!! trans('labels.patel.consult_doctor') !!}</label>
                         {{ Form::select('doctor_id', ['' => 'Please select Doctor'] + $doctors, null, [
                             'class' => 'form-control',
-                            'required'
+                            'required',
+                            'id'    => 'general_doctor_id'
                         ]) }}
                     </div>
                     
                     <div class="form-group">
-                    <label for="">Select Surgery</label>
+                    <label for="">{!! trans('labels.patel.select_surgery') !!}</label>
+
+                        <div class="form-check display-block">
+                        <label class="form-check-label display-inline">
+                            <input name="general" type="checkbox" value="general" class="form-check-input">
+                            General
+                        </label>
+                        <label>
+                            
+                        </label>
+                        <input placeholder="General Fees" id="general_fees"  name="general_fees" type="text" class="form-control display-inline radio-input">
+                        </div>
 
                         @if(isset($surgeries))
                             @foreach($surgeries as $surgery)
@@ -163,6 +175,14 @@
         }
     }
 
+    if(document.getElementById("general_doctor_id"))
+    {
+        document.getElementById("general_doctor_id").onchange = function(e)
+        {
+            resetGeneralFees(e.target.value);
+        }
+    }
+
     function resetFees(doctorId)
     {
         for(var i = 0; i < allDoctors.length; i++)
@@ -170,6 +190,17 @@
             if(allDoctors[i].id == doctorId)
             {
                 document.getElementById('doctor_fees').value = allDoctors[i].fees;
+            }
+        }
+    }
+
+    function resetGeneralFees(doctorId)
+    {
+        for(var i = 0; i < allDoctors.length; i++)
+        {
+            if(allDoctors[i].id == doctorId)
+            {
+                document.getElementById('general_fees').value = allDoctors[i].fees;
             }
         }
     }
@@ -224,8 +255,14 @@ function fetchPatientById()
                 document.getElementById('new_patient_id').value = document.getElementById('patient_id').value;
                 return;
             }
+            
+            if(data.isValid.toString() == "0") 
+            {
+                document.getElementById('errorMessage').innerHTML = '<span style="color: red;">'+ data.message + '</span>' ;
+                return 
+            }
 
-            document.getElementById('errorMessage').innerHTML = "No Patient Found!";
+            document.getElementById('errorMessage').innerHTML = data.message;
         },
         error: function(data)
         {

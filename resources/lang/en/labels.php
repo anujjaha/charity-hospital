@@ -14,10 +14,17 @@ return [
     */
     
     'patel' => [
-        'new_patient' => 'New',
-        'old_patient' => 'Existing',
-
-        'fees' => 'Fees',
+        'new_patient'       => 'New',
+        'old_patient'       => 'Existing',
+        'fees'              => 'Fees',
+        'patient_name'      => 'Patient Name',
+        'patient_age'       => 'Patient Age',
+        'patient_number'    => 'Patient ID',
+        'patient_contact'   => 'Contact Number',
+        'patient_validity'  => 'Valid For (In Month)',
+        'consult_doctor'    => 'Consult Doctor',
+        'consulting_fees'   => 'Consulting Fee',
+        'select_surgery'    => 'Select Surgery'
     ],
 
 

@@ -256,19 +256,30 @@ class DashboardController extends Controller
     public function createNewBooking(Request $request)
     {
         $input = $request->all();
+        
         if(isset($input['surgery_id']) && isset($input['doctor_id']))
         {
             $surgeries  = Surgery::whereIn('id', $input['surgery_id'])->get();
             $doctor     = Doctor::where('id', $input['doctor_id'])->first();
             $patient    = Patient::where('patient_number', $input['new_patient_id'])->first();
+            $consulting = 0;
+
+            if(isset($input['general']) && $input['general'] == 'general')
+            {
+                $consulting = $input['general_fees'];
+            }
+            else
+            {
+                $consulting = $doctor->fees;
+            }
 
             $inputData = [
                 'department_id' => access()->user()->department_id,
                 'patient_id'    => $patient->id,
                 'doctor_id'     => $input['doctor_id'],
                 'queue_number'  => access()->getQueueNumber(),
-                'consulting_fees' => $doctor->fees,
-                'total'         => $doctor->fees + $surgeries->sum('fees'),
+                'consulting_fees' => $consulting,
+                'total'         => $consulting + $surgeries->sum('fees'),
                 'booking_date'  => date('d-m-Y'),
                 'notes'         => 'New Surgery Created'
             ];
@@ -293,7 +304,7 @@ class DashboardController extends Controller
                 PatientSurgery::insert($patientSurgery);
             }
 
-            return redirect()->route('frontend.index')->withFlashSuccess('Booking Created Successfully!');
+            return redirect()->route('frontend.user.history.list')->withFlashSuccess('Booking Created Successfully!');
         }
 
         return redirect()->route('frontend.index')->withFlashDanger('Something weng Wrong!');
@@ -303,18 +314,34 @@ class DashboardController extends Controller
     {
         if($request->has('patientId'))
         {
-            $patient = Patient::where('patient_number', $request->get('patientId'))->first();
+            $patient    = Patient::where('patient_number', $request->get('patientId'))->first();
 
             if(isset($patient))
             {
+                $today      = date('Y-m-d');
+                $validTill  = date('Y-m-d', strtotime(date("Y-m-d", strtotime($patient->created_at)) . " +$patient->validity months"));
+
+                if($today < $validTill)
+                {
+                    return json_encode([
+                        'success' => true,
+                        'isValid' => 1,
+                        'patient' => $patient
+                    ]);
+                }
+
                 return json_encode([
-                    'success' => true,
-                    'patient' => $patient
+                    'success' => false,
+                    'isValid' => 0,
+                    'message' => 'Validity Expired !'
                 ]);
             }
         }
+
         return json_encode([
-            'success' => false
+            'success' => false,
+            'isValid' => 2,
+            'message' => 'No Patient Found !'
         ]);
     }
 

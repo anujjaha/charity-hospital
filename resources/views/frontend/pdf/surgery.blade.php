@@ -245,17 +245,30 @@
                                                 <th>NAME</th>
                                                 <th>PRICE</th>
                                             </tr>
-
+                                            @if(isset($booking) && isset($booking->consulting_fees))
+                                             <tr class="item-row">
+                                                    <td width="30" style="border-bottom: 1px solid gray;">1
+                                                    <td style="border-bottom: .5px solid gray;" class="description">
+                                                    Consulting Fees
+                                                    </td>
+                                                    <td style="border-bottom: 1px solid gray;">
+                                                    {!! number_format($booking->consulting_fees, 2) !!}/-</td>
+                                                </tr>
+                                            @endif
                                             @php
-                                                $sr     = 1;
-                                                $total  = 0;
+                                                $sr     = isset($booking->consulting_fees) ? 2 : 1;
+                                                $total  = isset($booking->consulting_fees) ? $booking->consulting_fees : 0;
                                             @endphp
+
+
                                             @foreach($booking->surgeries as $surgery)
                                                 <tr class="item-row">
                                                     <td width="30" style="border-bottom: 1px solid gray;">{!! $sr !!}</td>
                                                     <td style="border-bottom: .5px solid gray;" class="description">
                                                     {!! $surgery->surgery->title !!}
-                                                    ({!! $surgery->notes !!})
+                                                    @if(strlen( $surgery->notes) > 1)
+                                                        ({!! $surgery->notes !!})
+                                                    @endif
                                                     </td>
                                                     <td style="border-bottom: 1px solid gray;">
                                                     {!! number_format($surgery->surgery->fees, 2) !!}/-</td>
