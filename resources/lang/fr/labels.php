@@ -13,9 +13,17 @@ return [
     |
     */
      'patel' => [
-        'new_patient' => 'નવો દર્દી',
-        'old_patient' => 'જૂનું દર્દી',
-        'fees' => 'Fees',
+        'new_patient'       => 'નવો દર્દી',
+        'old_patient'       => 'જૂનું દર્દી',
+        'fees'              => 'Fees',
+        'patient_name'      => 'દર્દીનું નામ',
+        'patient_age'       => 'દર્દીની ઉંમર',
+        'patient_number'    => 'દર્દીની આઈડી',
+        'patient_contact'   => 'મોબાઈલ નં',
+        'patient_validity'  => 'માન્ય (મહિનાઓ)',
+        'consult_doctor'    => 'ડૉક્ટર પસંદ કરો',
+        'consulting_fees'   => 'ફી',
+        'select_surgery'    => 'સારવાર'
     ],
 
     'general' => [

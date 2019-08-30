@@ -84,19 +84,17 @@
                               $total  = $total + $booking->total; 
                             @endphp
                         @endforeach
-                          <tr>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>{!! $total !!}</td>
-                            <td>-</td>
-                            <td>-</td>
-                          </tr>
+                          
                     @endif
                 </tbody>
+                <tr>
+                  <td>-</td>
+                  <td colspan="5" align="center" class="text-bold">
+                  Total for {!! date('d-m-Y', strtotime($startDate)) !!} - {!! date('d-m-Y', strtotime($endDate)) !!}</td>
+                  <td>{!! $total !!}</td>
+                  <td>-</td>
+                  <td>-</td>
+                </tr>
               </table>
             </div>
           </div>
