@@ -17,13 +17,16 @@
                 <div class="text-center col-sm-12"><h4 class="card-title mb-3">Add Patient</h4>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="optradio" value="New">{!! trans('labels.patel.new_patient') !!}
+                        <input type="radio" class="form-check-input" name="optradio" value="New">
+                        <!-- {!! trans('labels.patel.new_patient') !!} -->
+                            દર્દી  
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="optradio" value="Existing">
-                            {!! trans('labels.patel.old_patient') !!}
+                            <!-- {!! trans('labels.patel.old_patient') !!} -->
+                            સારવાર
                         </label>
                     </div>
                 </div>
@@ -55,6 +58,12 @@
                             <option value="6">06</option>
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <label for="">{!! trans('labels.patel.patient_address') !!}</label>
+                        <input required="required" name="patient_address" id="patient_address" type="text" class="form-control">
+                    </div>
+
                     <div class="form-group">
                         <label for="doctor_id">{!! trans('labels.patel.consult_doctor') !!}</label>
                         {{ Form::select('doctor_id', ['' => 'Please select Doctor'] + $doctors, null, [

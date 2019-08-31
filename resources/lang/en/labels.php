@@ -21,6 +21,7 @@ return [
         'patient_age'       => 'Patient Age',
         'patient_number'    => 'Patient ID',
         'patient_contact'   => 'Contact Number',
+        'patient_address'   => 'Address',
         'patient_validity'  => 'Valid For (In Month)',
         'consult_doctor'    => 'Consult Doctor',
         'consulting_fees'   => 'Consulting Fee',

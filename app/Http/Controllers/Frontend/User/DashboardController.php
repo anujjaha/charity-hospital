@@ -224,8 +224,9 @@ class DashboardController extends Controller
         $patientData = [
         'name'          => isset($input['patient_name']) ? strtoupper($input['patient_name']) : '',
             'validity'  => isset($input['patient_validity']) ? $input['patient_validity'] : 6,
+            'address'   => isset($input['patient_address']) ? strtoupper($input['patient_address']) : '',
             'age'       => isset($input['patient_age']) ? $input['patient_age'] : 0,
-            'mobile'       => isset($input['mobile']) ? $input['mobile'] : 0,
+            'mobile'    => isset($input['mobile']) ? $input['mobile'] : 0,
         ];
         
         $patient = Patient::create($patientData);

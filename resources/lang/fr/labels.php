@@ -20,6 +20,7 @@ return [
         'patient_age'       => 'દર્દીની ઉંમર',
         'patient_number'    => 'દર્દીની આઈડી',
         'patient_contact'   => 'મોબાઈલ નં',
+        'patient_address'   => 'સરનામું',
         'patient_validity'  => 'માન્ય (મહિનાઓ)',
         'consult_doctor'    => 'ડૉક્ટર પસંદ કરો',
         'consulting_fees'   => 'ફી',
