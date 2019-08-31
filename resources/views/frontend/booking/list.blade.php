@@ -78,6 +78,12 @@
                                   <a class="btn btn-primary" target="_blank" href="{!! route('frontend.user.receipt.print', ['id' => $booking->id ]) !!}">
                                     Print
                                   </a>
+
+                                  @if(isset($booking->department_id) && $booking->department_id == 1)
+                                    <a class="btn btn-primary" target="_blank" href="{!! route('frontend.user.receipt.print-eye', ['id' => $booking->id ]) !!}">
+                                      Eye Print 
+                                    </a>
+                                  @endif
                                 </td>
                             </tr>
                             @php

@@ -525,7 +525,7 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function print($id, Request $request)
+    public function printEye($id, Request $request)
     {
         $booking = Booking::where('id', $id)->with(['doctor', 'patient', 'surgeries', 'surgeries.surgery'])->first();
         
@@ -535,6 +535,20 @@ class DashboardController extends Controller
                 'booking' => $booking
             ]);
         }
+
+        return redirect()->route('frontend.index');
+    }
+
+    public function print($id, Request $request)
+    {
+        $booking = Booking::where('id', $id)->with(['doctor', 'patient', 'surgeries', 'surgeries.surgery'])->first();
+        
+       /* if(isset($booking) && $booking->department_id == 1)
+        {
+            return view('frontend.pdf.eye-surgery')->with([
+                'booking' => $booking
+            ]);
+        }*/
         
         if(isset($booking->surgeries) && count($booking->surgeries))
         {
