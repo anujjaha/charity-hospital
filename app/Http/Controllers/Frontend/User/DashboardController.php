@@ -26,6 +26,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        return redirect()->route('frontend.index');
         return view('frontend.user.dashboard');
     }
     
@@ -527,6 +528,13 @@ class DashboardController extends Controller
     public function print($id, Request $request)
     {
         $booking = Booking::where('id', $id)->with(['doctor', 'patient', 'surgeries', 'surgeries.surgery'])->first();
+        
+        if(isset($booking) && $booking->department_id == 1)
+        {
+            return view('frontend.pdf.eye-surgery')->with([
+                'booking' => $booking
+            ]);
+        }
         
         if(isset($booking->surgeries) && count($booking->surgeries))
         {
