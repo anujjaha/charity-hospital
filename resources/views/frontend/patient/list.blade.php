@@ -19,10 +19,11 @@
                     <i class="mdi mdi-alert-circle"></i>
                     List All Patients
                   </div>
+                <div class="clearfix"></div>
         <div class="row">
           <div class="col-12">
-            <div class="table-responsive">
-              <table id="all-listing"  class="table table-striped">
+            <div class="table-responsive ">
+              <table id="all-listing" style="display: block;" class="table table-striped container-fluid d-block">
                 <thead>
                   <tr>
                       <th>Actions</th>

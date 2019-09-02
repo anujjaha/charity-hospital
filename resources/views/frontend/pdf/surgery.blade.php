@@ -308,8 +308,8 @@
                 <td colspan="2">
                     <table style="padding-top:50px;">
                         <tr>
-                            <td><strong>PHARMACIST SIGN</strong></td>
-                            <td><strong>DR.SIGN</strong></td>
+                            <td><strong></strong></td>
+                            <td><strong>SIGN</strong></td>
                         </tr>
                     </table>
                 </td>
