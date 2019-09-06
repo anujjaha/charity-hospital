@@ -276,11 +276,7 @@ class DashboardController extends Controller
             {
                 $consulting = $input['general_fees'];
             }
-            else
-            {
-                $consulting = $doctor->fees;
-            }
-
+            
             $inputData = [
                 'department_id' => access()->user()->department_id,
                 'patient_id'    => $patient->id,

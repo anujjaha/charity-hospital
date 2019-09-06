@@ -352,6 +352,7 @@ class UserRepository extends BaseRepository
         $user = self::MODEL;
         $user = new $user();
         $user->name = $input['name'];
+        $user->department_id = isset($input['department_id']) ? $input['department_id'] :  null;
         $user->email = $input['email'];
         $user->password = bcrypt($input['password']);
         $user->status = isset($input['status']) ? 1 : 0;

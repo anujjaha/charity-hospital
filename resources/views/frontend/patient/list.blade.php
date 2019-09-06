@@ -30,7 +30,9 @@
                       <th>Sr no.</th>
                       <th>Unique Number</th>
                       <th>Name</th>
+                      <th>Mobile</th>
                       <th>Age</th>
+                      <th>Address</th>
                       <th>Validity</th>
                   </tr>
                 </thead>
@@ -48,6 +50,8 @@
                                 <td>{!! $patient->id !!}</td>
                                 <td>{!! $patient->patient_number !!}</td>
                                 <td>{!! $patient->name !!}</td>
+                                <td>{!! $patient->mobile !!}</td>
+                                <td>{!! $patient->address !!}</td>
                                 <td>{!! $patient->age !!}</td>
                                 <td>{!! $patient->validity !!}</td>
                             </tr>
@@ -76,7 +80,16 @@
  <script type="text/javascript">
     jQuery(document).ready(function()
     {
-        jQuery('#all-listing').dataTable();
+        jQuery('#all-listing').dataTable({
+          autoWidth: false,
+          drawCallback: function( settings ) {
+              if(jQuery("#all-listing_wrapper"))
+              {
+                jQuery("#all-listing_wrapper").removeClass('form-inline');
+
+              }
+          }
+        });
     })
 </script> 
 @endsection

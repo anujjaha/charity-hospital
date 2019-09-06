@@ -19,7 +19,7 @@
                     <i class="mdi mdi-alert-circle"></i>
                     List All Surgeries
                   </div>
-                <div class="">
+                <div style="margin-bottom: 10px;">
                   <a href="{!! route('frontend.user.surgery.create') !!}" class="btn btn-primary">
                     Create New
                   </a>
@@ -75,9 +75,15 @@
 {{ Html::script("js/backend/plugin/datatables/jquery.dataTables.min.js") }}
 {{ Html::script("js/backend/plugin/datatables/dataTables.bootstrap.min.js") }}
  <script type="text/javascript">
-    jQuery(document).ready(function()
-    {
-        jQuery('#all-listing').dataTable();
-    })
+    jQuery('#all-listing').dataTable({
+          autoWidth: false,
+          drawCallback: function( settings ) {
+              if(jQuery("#all-listing_wrapper"))
+              {
+                jQuery("#all-listing_wrapper").removeClass('form-inline');
+
+              }
+          }
+        });
 </script> 
 @endsection
