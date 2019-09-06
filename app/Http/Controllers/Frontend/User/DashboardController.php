@@ -509,8 +509,11 @@ class DashboardController extends Controller
             $endDate    = Carbon::parse($endDate)->format('Y-m-d') . ' 23:59:59';;
         }
         
-        $bookings = Booking::where('created_at', '>=', $startDate)
+        $deptId     = access()->user()->department_id;
+
+        $bookings   = Booking::where('created_at', '>=', $startDate)
             ->where('created_at', '<=', $endDate)
+            ->where('department_id', $deptId)
             ->with(['doctor', 'patient', 'surgeries', 'surgeries.surgery'])
             ->orderBy('id', 'desc')
             ->get();
