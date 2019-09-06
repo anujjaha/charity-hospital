@@ -26,12 +26,12 @@
                     <div class="form-group">
                         <label for="validity">Validity</label>
                         {!! Form::select('validity', ['' => 'Select Validity',
-                                1 => 1,
-                                2 => 2,
-                                3 => 3,
-                                4 => 4,
-                                5 => 5,
-                                6 => 6
+                                1 => "01",
+                                2 => "02",
+                                3 => "03",
+                                4 => "04",
+                                5 => "05",
+                                6 => "06"
                             ], null, [
                             'class' => 'form-control',
                             'required'
