@@ -2,7 +2,7 @@
     <nav class="navbar top-navbar col-lg-12 col-12 p-0">
         <div class="container">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <h2 style="color:#fff;" class="m-0">Patel Hospital</h2>
+                <h2 style="color:#fff;" class="m-0">P T Mirani Hospital</h2>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center">
                 <ul class="navbar-nav navbar-nav-right">

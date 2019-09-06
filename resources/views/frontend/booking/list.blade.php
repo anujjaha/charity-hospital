@@ -42,6 +42,7 @@
                 <thead>
                   <tr>
                       <th>Sr no.</th>
+                      <th>Print</th>
                       <th>Patient</th>
                       <th>Patient Number</th>
                       <th>Doctor</th>
@@ -51,7 +52,6 @@
                       </th>
                       <th>Total</th>
                       <th>Surgery</th>
-                      <th>Print</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -62,6 +62,17 @@
                         @foreach($bookings as $booking)
                             <tr class="erow">
                                 <td>{!! $booking->id !!}</td>
+                                <td>  
+                                  <a class="btn btn-primary" target="_blank" href="{!! route('frontend.user.receipt.print', ['id' => $booking->id ]) !!}">
+                                    Print
+                                  </a>
+
+                                  @if(isset($booking->department_id) && $booking->department_id == 1)
+                                    <a class="btn btn-primary" target="_blank" href="{!! route('frontend.user.receipt.print-eye', ['id' => $booking->id ]) !!}">
+                                      Eye Print 
+                                    </a>
+                                  @endif
+                                </td>
                                 <td>{!! $booking->patient->name !!}</td>
                                 <td>{!! $booking->patient->patient_number !!}</td>
                                 <td>Dr. {!! $booking->doctor->name !!}</td>
@@ -75,17 +86,7 @@
                                     No
                                   @endif
                                 </td>
-                                <td>  
-                                  <a class="btn btn-primary" target="_blank" href="{!! route('frontend.user.receipt.print', ['id' => $booking->id ]) !!}">
-                                    Print
-                                  </a>
-
-                                  @if(isset($booking->department_id) && $booking->department_id == 1)
-                                    <a class="btn btn-primary" target="_blank" href="{!! route('frontend.user.receipt.print-eye', ['id' => $booking->id ]) !!}">
-                                      Eye Print 
-                                    </a>
-                                  @endif
-                                </td>
+                                
                             </tr>
                             @php
                               $total  = $total + $booking->total; 

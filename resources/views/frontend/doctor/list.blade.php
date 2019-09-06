@@ -51,7 +51,7 @@
                                 </td>
                                 <td width="10%">{!! $doctor->id !!}</td>
                                 <td width="30%">Dr. {!! $doctor->name !!}</td>
-                                <td width="20%">Dr. {!! $doctor->mobile !!}</td>
+                                <td width="20%">{!! $doctor->mobile !!}</td>
                                 <td width="15%">{!! isset($doctor->department) ? $doctor->department->name : '' !!}</td>
                                 <td width="5%">{!! $doctor->fees !!}</td>
                                 <td width="10%">{!! $doctor->notes !!}</td>
