@@ -26,7 +26,7 @@
                         <label class="form-check-label">
                             <input type="radio" class="form-check-input" name="optradio" value="Existing">
                             <!-- {!! trans('labels.patel.old_patient') !!} -->
-                            સારવાર
+                            સારવાર / જૂનું દર્દી
                         </label>
                     </div>
                 </div>
@@ -134,7 +134,12 @@
                         <label>
                             
                         </label>
-                        <input placeholder="General Fees" id="general_fees"  name="general_fees" type="text" class="form-control display-inline radio-input">
+
+                            <input  name="general_notes" placeholder="Notes" type="text" class="form-control display-inline radio-input">
+
+                            <input placeholder="General Fees" id="general_fees"  name="general_fees" type="text" class="form-control display-inline radio-input">
+
+
                         </div>
 
                         @if(isset($surgeries))
@@ -147,7 +152,12 @@
                                 <label>
                                     ( ₹ {!! $surgery->fees !!}  )
                                 </label>
-                                <input  name="surgery_notes[{!! $surgery->id !!}]" type="text" class="form-control display-inline radio-input">
+
+                                <input  name="surgery_notes[{!! $surgery->id !!}]" type="text" placeholder="Notes" class="form-control display-inline radio-input">
+
+                                <input name="surgery_fees[{!! $surgery->id !!}]" value="{!! $surgery->fees !!}" type="number" placeholder="Fees" step="1" min="0" class="form-control display-inline radio-input">
+
+                                
                                 </div>
                             @endforeach
                         @endif

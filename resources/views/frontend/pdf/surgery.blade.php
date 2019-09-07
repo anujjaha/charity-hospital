@@ -249,7 +249,7 @@
                                              <tr class="item-row">
                                                     <td width="30" style="border-bottom: 1px solid gray;">1
                                                     <td style="border-bottom: .5px solid gray;" class="description">
-                                                    Consulting Fees
+                                                    {!! isset($booking->notes) ? $booking->notes : 'Consulting Fees' !!}
                                                     </td>
                                                     <td style="border-bottom: 1px solid gray;">
                                                     {!! number_format($booking->consulting_fees, 2) !!}/-</td>
@@ -271,11 +271,11 @@
                                                     @endif
                                                     </td>
                                                     <td style="border-bottom: 1px solid gray;">
-                                                    {!! number_format($surgery->surgery->fees, 2) !!}/-</td>
+                                                    {!! number_format($surgery->surgery_fees, 2) !!}/-</td>
                                                 </tr>
                                                 @php
                                                     $sr++;
-                                                    $total = $total + $surgery->surgery->fees;
+                                                    $total = $total + $surgery->surgery_fees;
                                                 @endphp
 
                                             @endforeach

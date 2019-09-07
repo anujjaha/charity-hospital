@@ -258,6 +258,8 @@ class DashboardController extends Controller
     public function createNewBooking(Request $request)
     {
         $input = $request->all();
+
+        //dd($input);
         
         if(isset($input['surgery_id']) || isset($input['doctor_id']))
         {
@@ -265,16 +267,25 @@ class DashboardController extends Controller
             $patient    = Patient::where('patient_number', $input['new_patient_id'])->first();
             $consulting = 0;
             $surgeryTotal = 0;
+            $gnotes     = null;
 
-            if(isset($input['surgery_id']))
+            if(isset($input['surgery_id']) && isset($input['surgery_fees']))
             {
-                $surgeries      = Surgery::whereIn('id', $input['surgery_id'])->get();
-                $surgeryTotal   = $surgeries->sum('fees');
+                $totalFees = 0;
+
+                foreach($input['surgery_fees'] as $sfees)
+                {
+                    $totalFees = $totalFees + $sfees;
+                }
+                /*$surgeries      = Surgery::whereIn('id', $input['surgery_id'])->get();
+                $surgeryTotal   = $surgeries->sum('fees');*/
+                $surgeryTotal   = $totalFees;
             }
 
             if(isset($input['general']) && $input['general'] == 'general')
             {
                 $consulting = $input['general_fees'];
+                $gnotes     = $input['general_notes'];
             }
             
             $inputData = [
@@ -285,23 +296,24 @@ class DashboardController extends Controller
                 'consulting_fees' => $consulting,
                 'total'         => $consulting + $surgeryTotal,
                 'booking_date'  => date('d-m-Y'),
-                'notes'         => 'New Surgery Created'
+                'notes'         => $gnotes ? $gnotes : 'New Surgery Created'
             ];
 
             $booking = Booking::create($inputData);
 
             $patientSurgery = [];
 
-            if(isset($surgeries) && count($surgeries))
+            if(isset($input['surgery_id']) && isset($input['surgery_fees']))
             {
-                foreach($surgeries as $surgery)
+                foreach($input['surgery_id'] as $surgeryId)
                 {
                     $patientSurgery[] = [
                         'booking_id'    => $booking->id,
                         'patient_id'    => $patient->id,
                         'doctor_id'     => $input['doctor_id'],
-                        'surgery_id'    => $surgery->id,
-                        'notes'         => $input['surgery_notes'][$surgery->id]
+                        'surgery_id'    => $input['surgery_id'][$surgeryId],
+                        'surgery_fees'  => $input['surgery_fees'][$surgeryId],
+                        'notes'         => $input['surgery_notes'][$surgeryId]
                     ];
                 }
 

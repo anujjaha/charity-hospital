@@ -24,7 +24,8 @@ class PatientSurgery extends BaseModel
      *
      */
     protected $fillable = [
-        "id", "patient_id", "doctor_id", "booking_id", "surgery_id", "notes", "status", "created_at", "updated_at", 
+        "id", "patient_id", "doctor_id", "booking_id", "surgery_id",
+        "surgery_fees", "notes", "status", "created_at", "updated_at", 
     ];
 
     /**
