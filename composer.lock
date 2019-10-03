@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "693263ff52cf69b35610f5bf6ad097d9",
@@ -51,9 +51,9 @@
             "authors": [
                 {
                     "name": "ARCANEDEV",
-                    "role": "Developer",
                     "email": "arcanedev.maroc@gmail.com",
-                    "homepage": "https://github.com/arcanedev-maroc"
+                    "homepage": "https://github.com/arcanedev-maroc",
+                    "role": "Developer"
                 }
             ],
             "description": "Provides a Log Viewer for Laravel 5",
@@ -113,9 +113,9 @@
             "authors": [
                 {
                     "name": "ARCANEDEV",
-                    "role": "Developer",
                     "email": "arcanedev.maroc@gmail.com",
-                    "homepage": "https://github.com/arcanedev-maroc"
+                    "homepage": "https://github.com/arcanedev-maroc",
+                    "role": "Developer"
                 }
             ],
             "description": "No CAPTCHA (new Google reCAPTCHA) with Laravel support",

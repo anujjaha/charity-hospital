@@ -208,7 +208,7 @@
              <table cellpadding="0" cellspacing="0">
                 <tr class="border">
                     <td>
-                        NAME : {!! $booking->patient->name !!}
+                        NAME : {!! $booking->patient->name !!} ( {!! $booking->patient->mobile !!} )
                     </td>
                     <td style="width: 200px;text-align: left;">
                         DATE : {!! date('d-m-Y', strtotime($booking->created_at)) !!}
@@ -217,13 +217,9 @@
                 <tr class="border">
                     <td>AGE : {!! $booking->patient->age !!} </td>
                     <td style="width: 200px;text-align: left;">
-                        Mobile No : {!! $booking->patient->mobile !!}
+                        Unique Number : {!! $booking->patient->patient_number !!}
                     </td>
                 </tr>
-				<tr class="border">
-                    <td>Unique Number : {!! $booking->patient->patient_number !!} </td>
-                    <td></td>
-                                    </tr>
             </table>
 
 <table cellpadding="0" cellspacing="0">

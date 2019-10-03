@@ -263,7 +263,7 @@ class DashboardController extends Controller
     {
         $input = $request->all();
 
-        //dd($input);
+       // dd($input);
         
         if(isset($input['surgery_id']) || isset($input['doctor_id']))
         {
@@ -272,20 +272,26 @@ class DashboardController extends Controller
             $consulting = 0;
             $surgeryTotal = 0;
             $gnotes     = null;
+			$sgIds      = $input['surgery_id'];
 
             if(isset($input['surgery_id']) && isset($input['surgery_fees']))
             {
                 $totalFees = 0;
 
-                foreach($input['surgery_fees'] as $sfees)
+                foreach($input['surgery_fees'] as $fKey => $sfees)
                 {
-                    $totalFees = $totalFees + $sfees;
+					if(in_array($fKey, $sgIds))
+					{
+					    $totalFees = $totalFees + $sfees;
+					}
                 }
                 /*$surgeries      = Surgery::whereIn('id', $input['surgery_id'])->get();
                 $surgeryTotal   = $surgeries->sum('fees');*/
                 $surgeryTotal   = $totalFees;
             }
 
+			//dd($surgeryTotal);
+			
             if(isset($input['general']) && $input['general'] == 'general')
             {
                 $consulting = $input['general_fees'];
