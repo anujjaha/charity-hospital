@@ -249,7 +249,7 @@
                                                 <th>E</th>
                                                 <th>N</th>-->
                                             </tr>
-                                            @for($i = 0; $i < 10; $i++)
+                                            @for($i = 0; $i < 14; $i++)
                                                 <tr class="item-row">
                                                     <td width="50"></td>
                                                     <td class="description"></td>

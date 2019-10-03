@@ -72,9 +72,10 @@
                                 <td>  
                                   <a class="btn btn-primary" target="_blank" href="{!! route('frontend.user.receipt.print', ['id' => $booking->id ]) !!}">
                                     Print
-                                  </a>
+                                  </a> 
+								  {{-- dd($booking) --}}
 
-                                  @if(isset($booking->department_id) && $booking->department_id == 1)
+                                  @if(isset($booking->department_id) && $booking->department_id == 3)
                                     <a class="btn btn-primary" target="_blank" href="{!! route('frontend.user.receipt.print-eye', ['id' => $booking->id ]) !!}">
                                       Eye Print 
                                     </a>

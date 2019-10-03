@@ -220,6 +220,10 @@
                         Mobile No : {!! $booking->patient->mobile !!}
                     </td>
                 </tr>
+				<tr class="border">
+                    <td>Unique Number : {!! $booking->patient->patient_number !!} </td>
+                    <td></td>
+                                    </tr>
             </table>
 
 <table cellpadding="0" cellspacing="0">
