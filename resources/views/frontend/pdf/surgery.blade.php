@@ -245,7 +245,7 @@
                                                 <th>NAME</th>
                                                 <th>PRICE</th>
                                             </tr>
-                                            @if(isset($booking) && isset($booking->consulting_fees))
+                                            @if(isset($booking) && isset($booking->consulting_fees) && $booking->consulting_fees > 0)
                                              <tr class="item-row">
                                                     <td width="30" style="border-bottom: 1px solid gray;">1
                                                     <td style="border-bottom: .5px solid gray;" class="description">
@@ -256,7 +256,7 @@
                                                 </tr>
                                             @endif
                                             @php
-                                                $sr     = isset($booking->consulting_fees) ? 2 : 1;
+                                                $sr     = isset($booking->consulting_fees) && $booking->consulting_fees > 0 ? 2 : 1;
                                                 $total  = isset($booking->consulting_fees) ? $booking->consulting_fees : 0;
                                             @endphp
 

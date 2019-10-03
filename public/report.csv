@@ -1,3 +1,310 @@
 Department,"Patient Name","Patient Number",Doctor,Fees,Total,Surgery
-Dental,"RRESH PATEL",12708,"MR Gandhi",0,400,"Dental, Teeth Cleaning"
-Dental,"RRESH PATEL",12708,"MR Gandhi",250,400,Dental
+"Gynecologist  Department","PUSHPABEN H PRAJAPTI",2560210,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","KHERONI HANI BOKDA",2520210,"Dr. Priyanka Dixit",0,150,"BACK PAIN"
+"Gynecologist  Department","ASHABEN J RAULJI",2550210,"Dr. Vipul Mehta",0,58600,"ROOM CHARGE-500, BED-MEDICINE, OT MEDICINE, LSCS"
+"Gynecologist  Department","KHERONI HANI BOKDA",2520210,"Dr. Priyanka Dixit",0,150,"BACK PAIN"
+"Gynecologist  Department","ASHABEN J RAULJI",2550210,"Dr. Vipul Mehta",0,0,-
+"Gynecologist  Department","RITABEN KATIYA",2540210,"Dr. Priyanka Dixit",50,50,-
+"Gynecologist  Department","MAGUBEN A PATEL",2530210,"Dr. Priyanka Dixit",70,70,-
+"Gynecologist  Department","KHERONI HANI BOKDA",2520210,"Dr. Priyanka Dixit",20,20,-
+"Gynecologist  Department","SHAFURABEN H AYINA",2510210,"Dr. Priyanka Dixit",20,20,-
+"Gynecologist  Department","BARIY PARVATSIH FATESIH",2500210,"DR.ARUSHI PATEL",20,20,-
+"Gynecologist  Department","RAXITABEN  VIPULKUMAR BARIAA",2490210,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","JAGJIBHAI  SHALUBHAI  PARGHI",2480210,"DR.C K DAMOR",20,20,-
+"Gynecologist  Department","KARASHANBEN  R RATHOD",2470210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","KAVAIPATI  SHAHANI",2460210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","DAHIBEN   C  PATEL",2450210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","DIMPAL DIPAK DODVANI",2440210,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","BALVANTBHAI  S  RATHOD",2430210,"DR.C K DAMOR",20,20,-
+"Gynecologist  Department","SUMITABEN  BHARATBHAI  BARIAA",2420210,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","VINAY  M   PURANI",2410210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","URMILABEN  KAMLESH  BARIAA",2400210,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","SARIFABIBI  A  SAIYAD",2390210,"DR.C K DAMOR",20,20,-
+"Gynecologist  Department","KHERUNISHA  A  KAJI",2380210,"DR.C K DAMOR",20,20,-
+"Gynecologist  Department","SUMITABEN  DINESHKUMAR PATEL",2370210,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","DIPIKABEN VIJAYKUAMR PATEL",2360210,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","VAJABHAI  B  PARAMAR",2350210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","RINKALBEN ALPESH PATEL",2340210,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","DHARMENDR  J   CHAUHAN",2330210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","BHARATBHAI  SAHANI",2320210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","NATVARBHAI CHOHAN",2310210,"Dr. Priyanka Dixit",40,40,-
+"Gynecologist  Department","KANTIBHAI  K SOLANKI",2300210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","ANILKUMAR   N SHAH",2290210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","DAXABEN JAGDISHKUMAR PARMAR",2280210,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","JAYENDRABHAI  B  SHAH",2270210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","BODIBEN RAMSING BARIAA",2260210,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","HIMUBEN   N  DANTANI",2250210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","IMRANBHAI ISHAMAYILWALA",2240210,"Dr. Priyanka Dixit",70,70,-
+"Gynecologist  Department","PRAMANAD   J  PATEL",2230210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","SONALBEN SATISHKUMAR  CHOUHAN",2220210,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","LILABEN SUTARIYA",2210210,"Dr. Priyanka Dixit",50,50,-
+"Gynecologist  Department","INDIRABEN   P   PRAJAPATI",2200210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","URMILABEN  MEHULKUMAR  HARIJAN",2190210,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","KOKILABEN PARIKH",2180210,"Dr. Priyanka Dixit",50,50,-
+"Gynecologist  Department","SANJAYBHAI  K  CHAUHAN",2170210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","HARSHADBHAI  K PANDIYA",2160210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","KURESHI    NASIRBHAI",2150210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","SHOBHNABEN MUKESHKUMAR BARIAA",2140210,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","KURESHI  SAKIR",2130210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","KOKILABEN ALPESHKUMAR PATEL",2120210,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","HASMUKHBHAI P SHAH",1890210,"Dr. Priyanka Dixit",50,50,-
+"Gynecologist  Department","BHAGAVATIBEN  JADAV",2110210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","TARABEN   M   PURANI",2100210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","CHANDRIKABEN  HASMUKHBHAI BARIAA",2090210,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","RAJESHVRIBEN BASRANI",2000210,"Dr. Priyanka Dixit",100,100,-
+"Gynecologist  Department","PRAVATBHAI  P  BARIA",2080210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","KAMDABEN K RANA",2070210,"Dr. Priyanka Dixit",50,50,-
+"Gynecologist  Department","SARMISHTHABEN  P BARIA",2060210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","KAMLABEN K RANA",2050210,"Dr. Priyanka Dixit",50,50,-
+"Gynecologist  Department","SANJAYBHAI  J DAMOR",2040210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","LAKSHMIBEN K DABAGAR",2030210,"Dr. Priyanka Dixit",20,20,-
+"Gynecologist  Department","DIPAKKUMAR   J   PURIVALA",2020210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","ANJALIBEN   D  PURIVALA",2010210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","RAJESHVRIBEN BASRANI",2000210,"Dr. Priyanka Dixit",20,20,-
+"Gynecologist  Department","KRISHNA    D PURIVALA",1990210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","VAISHALIBEN  R PARAMAR",1980210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","BHAVNABEN  CHIRAG BHOI",1970210,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","ANAVAR  H   KHARADI",1960210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","LAXMIBEN CHAUHAN",1950210,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","PARULBEN P BARIA",1940210,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","VIJAYBHAI  P NAYAK",1930210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","MAHESHBHAI  C  BARIA",1920210,"DR.C K DAMOR",20,20,-
+"Gynecologist  Department","SOMABHAI  B PATELIYA",1910210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","BHUPENDRASINH  K JADVA",1900210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","HASMUKHBHAI P SHAH",1890210,"Dr. Priyanka Dixit",20,20,-
+"Gynecologist  Department","KINJALBEN  SURENDRAKUMAR PARMAR",1880210,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","AFEZA   A  HAJIYA",1870210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","MANJUBEN MANOJBHAI SHETHIYA",1860210,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","GAURIBEN  RAMESHBHAI  SOLANKI",1850210,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","GOVIDBHAI  K  VANZARA",1840210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","SANTOSHBEN   V  DARJI",1830210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","VISHNARAM   M   DARJI",1820210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","ANKITABEN HIMMATBHAI PATEL",1810210,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","KANJIBHAI P VANZARA",1800210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","PITHABHAI V SANGADA",1790210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","MANISHABEN  HIRABHAI  BHARVAD",1780210,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","NIKITABEN JETHAWANI",1770210,"Dr. Priyanka Dixit",2000,2000,-
+"Gynecologist  Department","REHANA RIZVAN MANSURI",1760210,"DR.ANANT PATEL",0,1820,SONOGRAPHY-NORMAL
+"Gynecologist  Department","REHANA RIZVAN MANSURI",1760210,"DR.ANANT PATEL",0,0,-
+"Gynecologist  Department","SAMSADBANU MEHBUBALI SHAIYD",1750210,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","NIKITABEN JETHAWANI",1740210,"Dr. Priyanka Dixit",0,0,-
+"Gynecologist  Department","SOBHANABEN J  CHAUHAN",1730210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","MOHINIBEN BHATIYA",1720210,"Dr. Priyanka Dixit",0,0,-
+"Gynecologist  Department","RADHABEN S THAKOR",1710210,"Dr. Priyanka Dixit",0,0,-
+"Gynecologist  Department","ARATSINH  B HARIJAN",1700210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","AMITABEN  DILIPBHAI PATEL",1690210,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","DAKHSHABEN RANA",870110,"Dr. Priyanka Dixit",0,190,"KNEE PAIN"
+"Gynecologist  Department","RAASIKABEN D PARMR",1680210,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department","SUREKHABEN  KALPESH HARIJAN",1670210,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","SHARMILABEN  BHALSINH BARIAA",1660210,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","ARJUNSHINH K BARIYA",1650210,"Dr. Priyanka Dixit",70,70,-
+"Gynecologist  Department","HINABEN DIPAK VISHVANI",1640210,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","MITABEN SHAH",1630210,"Dr. Priyanka Dixit",80,80,-
+"Gynecologist  Department","FATEMA JUBER KOLA",1620210,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","MANJULABEN  P BARIA",1610210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","JAGRUTIBEN  KISHAN MACHI",1600210,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","MANJULABEN  D  PATEL",1590210,"DR.C K DAMOR",20,20,-
+"Gynecologist  Department","RINKUBEN KIRTANBHAI PATEL",1580210,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","PRIYANKABEN JIGAR CHOUHAN",1570210,"Dr. Vipul Mehta",100,100,-
+"Gynecologist  Department","VARSHABEN JAGDISHBHAI N SAMNANI",1560210,"Dr. Vipul Mehta",100,100,-
+"Gynecologist  Department","VRUDABEN  R PATHK",1550210,"DR.C K DAMOR",20,20,-
+"Gynecologist  Department","NARMADABEN  PRAKASHBHAI BARIAA",1540210,"Dr. Vipul Mehta",100,100,-
+"Gynecologist  Department","MANISHABEN  RAVINDRA RATHOD",1530210,"Dr. Vipul Mehta",100,100,-
+"Gynecologist  Department","MANOJBHAI  ARATHOD",1520210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","SHVATIBEN  ASHOK MOCHI",1510210,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","JAGRUTIBEN  KUNAL BHOI",1500210,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","DIPANDRA KUMAR GULABSHIH PARMAR",1490210,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department","YASHAVI M BHATIA",1480210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","MEHUL RAMANBHAI",1470210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","GANPATBHAI GOSAI",1460210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","KHERUNISHA H MANSURI",1450210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","HAFIZA I HAYAT",1440210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","NERU BEN MAKAWANA",1400210,"DR.ARUSHI PATEL",0,8750,"SIMPLE EXTRACTION"
+"Gynecologist  Department","HANIFA H MOHAN",1430210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","RUSHABH PANDYA",1420210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","ARYAN PANDYA",1410210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","NERU BEN MAKAWANA",1400210,"DR.ARUSHI PATEL",20,20,-
+"Gynecologist  Department","ANURAGSINH RATHOD",1390210,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","LALJIBHAI N VANKAR",900110,"Dr. Priyanka Dixit",0,150,"SHOULDER PAIN"
+"Gynecologist  Department","NELESHBHAI CHOHAN",830110,"Dr. Priyanka Dixit",0,150,"KNEE PAIN"
+"Gynecologist  Department","RADHABEN S THAKOR",1380110,"Dr. Priyanka Dixit",0,0,-
+"Gynecologist  Department","MAHEKBEN VADHVANI",1370110,"Dr. Priyanka Dixit",0,0,-
+"Gynecologist  Department","KAMDABEN K RANA",1360110,"Dr. Priyanka Dixit",50,50,-
+"Gynecologist  Department","JIGNASHABEN MISHRA",1350110,"Dr. Priyanka Dixit",0,0,-
+"Gynecologist  Department","IMRANBHAI ISHAMAYILWALA",1340110,"Dr. Priyanka Dixit",70,70,-
+"Gynecologist  Department","RITABEN KATIYA",1330110,"Dr. Priyanka Dixit",50,50,-
+"Gynecologist  Department","KOKILABEN PARIKH",1320110,"Dr. Priyanka Dixit",50,50,-
+"Gynecologist  Department","LILABEN SUTARIYA",1310110,"Dr. Priyanka Dixit",50,50,-
+"Gynecologist  Department","MAGUBEN A PATEL",1300110,"Dr. Priyanka Dixit",70,70,-
+"Gynecologist  Department","KAILASHBEN  DHARMENDRAKUMAR  PATEL",1290110,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","MOHMADBHAI U HUDI",1280110,"Dr. Priyanka Dixit",70,70,-
+"Gynecologist  Department","SHAKUBEN H PATEL",1260110,"DR.ARUSHI PATEL",0,7850,"ROOT CANAL"
+"Gynecologist  Department","SHAKUBEN H PATEL",1260110,"DR.ARUSHI PATEL",0,8250,"ROOT CANAL"
+"Gynecologist  Department","SHAKUBEN H PATEL",1260110,"DR.ARUSHI PATEL",20,20,-
+"Gynecologist  Department","ILABEN RAJESHKUMAR  PARMAR",1270110,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","SHAKUBEN H PATEL",1260110,"DR.ARUSHI PATEL",20,8270,"ROOT CANAL"
+"Gynecologist  Department","SHAKUBEN H PATEL",1260110,"DR.ARUSHI PATEL",20,20,-
+"Gynecologist  Department","BHAVNABEN  PRADIPKUMAR BARIAA",1250110,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","REKHABEN  DILIPSINH MAKVANA",1240110,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","MAHEKBEN VADHVANI",1230110,"Dr. Priyanka Dixit",30,30,-
+"Gynecologist  Department","MAHEKBEN VADHVANI",1220110,"Dr. Priyanka Dixit",0,0,-
+"Gynecologist  Department","REKHABEN PATEL",1210110,"DR.ARUSHI PATEL",50,50,-
+"Gynecologist  Department","SONALIBEN M CHODHRI",1000110,"Dr. Priyanka Dixit",0,160,"BACK PAIN"
+"Gynecologist  Department","SACHITA BHATIA",1200110,"Dr. Priyanka Dixit",0,100,"WEIGHT LOSS PATIENT"
+"Gynecologist  Department","SACHITA BHATIA",1200110,"Dr. Priyanka Dixit",0,2600,"WEIGHT LOSS PATIENT"
+"Gynecologist  Department","SACHITA BHATIA",1200110,"Dr. Priyanka Dixit",30,30,-
+"Gynecologist  Department","JIGNASHBEN J BHANPURIYA",720110,"Dr. Vipul Mehta",0,52100,LSCS
+"Gynecologist  Department","JIGNASHBEN J BHANPURIYA",720110,"Dr. Vipul Mehta",0,59100,"ROOM CHARGE-500"
+"Gynecologist  Department","BHARTIBEN GULABSINH BARIAA",960110,"Dr. Vipul Mehta",0,57100,"NORMAL DELIEVERY, ROOM CHARGE-300, BED-MEDICINE, OT MEDICINE, EXTRA"
+"Gynecologist  Department","MUKESH P PRAJAPATI",1190110,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","DAVE RAJU BHAI",503009,"DR.C K DAMOR",0,98100,"5.25MM-FECO MACHINE-IMPORTED NON FOLDABLE LENSE"
+"Gynecologist  Department","MONIKA BHATIYA",72609,"DR.C K DAMOR",0,98100,"5.25MM-FECO MACHINE-IMPORTED NON FOLDABLE LENSE"
+"Gynecologist  Department","DIPIKABEN  VIJAYKUMAR PATEL",1180110,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","KUSUMBEN  HASMUKHABHAI PARMAR",1170110,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","URAVASHIBEN  MAYUR ZALA",1160110,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","LADLI  PAPPUBHAI YADAV",1150110,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","RAHABEN SAVAN DAMOR",1140110,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","BHAVNABEN  JITENDRA  PATEL",1130110,"Dr. Vipul Mehta",100,100,-
+"Gynecologist  Department","USHABEN  SHAILESHBHAI BARIAA",1120110,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","VARSHABEN  MUKESHBHAI BARIAA",1110110,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","RUBINABEN  AKRAM PATHAN",1100110,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","SAMARJAHA  IRSHARD  SHEIKH",1090110,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","RAMILABEN  BHARAT PATEL",1080110,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","SUMAIYA  UNUSN  BHALA",1070110,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","VEDANT BHAI CHAWDA",1060110,"Dr. Rikin Desai",0,1940,BOTTLE
+"Gynecologist  Department","VEDANT BHAI CHAWDA",1060110,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department","SAFURA  RAMZANI",1050110,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","BHAGVATIBEN  RAJENDRA CHOUAN",1040110,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","PATEL MAMATABEN M",950110,"Dr. Rikin Desai",0,1820,ECG
+"Gynecologist  Department","PATEL MAMATABEN M",950110,"Dr. Rikin Desai",50,1870,ECG
+"Gynecologist  Department","JANAKBEN KAMLESH CHOUHAN",1030110,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","DAXABEN  YOGESHBHAI   PATEL",1020110,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","VADAN VEETHIY BEN",1010110,"DR.C K DAMOR",20,20,-
+"Gynecologist  Department","SONALIBEN M CHODHRI",1000110,"Dr. Priyanka Dixit",60,60,-
+"Gynecologist  Department","REVABEN  RANGIT RATHVA",990110,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","JYOTSHNABEN  SUBHASHBHAI  PARGI",980110,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","KAMINIBEN PRITAM BARIAA",970110,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","BHARTIBEN GULABSINH BARIAA",960110,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","PATEL MAMATABEN M",950110,"DR.ANANT PATEL",250,250,-
+"Gynecologist  Department","NELESHBHAI CHOHAN",830110,"Dr. Priyanka Dixit",50,50,-
+"Gynecologist  Department","HUSEN  M CHARKHA",940110,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","RAMADEVI  KUSUVA",930110,"DR.ARUSHI PATEL",100,100,-
+"Gynecologist  Department","RAMADEVI  KUSUVA",930110,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","FIROJKHAN  PATHAN",920110,"DR.ARUSHI PATEL",100,100,-
+"Gynecologist  Department","FIROJKHAN  PATHAN",920110,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","HAFIZABIBI   I  SAIYAD",910110,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","LALJIBHAI N VANKAR",900110,"Dr. Priyanka Dixit",50,50,-
+"Gynecologist  Department","BHIKHIBEN  M  CHAUHAN",890110,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","GITABEN  B MARVADI",880110,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","DAKHSHABEN RANA",870110,"Dr. Priyanka Dixit",90,90,-
+"Gynecologist  Department","SUMANBHAI  YUSUFBHAI  GAGLA",860110,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","JIGNASHBEN J BHANPURIYA",720110,"Dr. Vipul Mehta",0,1500,"NORMAL DELIEVERY"
+"Gynecologist  Department","JIGNASHBEN J BHANPURIYA",720110,"Dr. Vipul Mehta",0,0,-
+"Gynecologist  Department","JIGNASHBEN J BHANPURIYA",720110,"Dr. Vipul Mehta",0,1500,"NORMAL DELIEVERY"
+"Gynecologist  Department","MAFAT   HUSEN",850110,"DR.ARUSHI PATEL",130,130,-
+"Gynecologist  Department","NASARIN  A POLA",840110,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","NELESHBHAI CHOHAN",830110,"Dr. Priyanka Dixit",20,20,-
+"Gynecologist  Department","NURPENKUMAR   P BARIYA",820110,"DR.ARUSHI PATEL",20,20,-
+"Gynecologist  Department","DHANABHAI  BUTABHAI  PATEL",810110,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","GAJRIBEN  DHANABHAI  PATEL",800110,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","ABAJI  FOJAJI  VANZARA",790110,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","USHABEN  BHIMSINH  PATEL",780110,"DR.ARUSHI PATEL",20,20,-
+"Gynecologist  Department","SAFURA   HUSEN  YAYMAN",770110,"DR.ARUSHI PATEL",20,20,-
+"Gynecologist  Department","MAGARAMBHAI THAKKAR",760110,"Dr. Priyanka Dixit",50,50,-
+"Gynecologist  Department","PATEL MAMATABEN M",750110,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department","RAJUBHAI   GOKALBHAI MALIVAD",740110,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","SAFRA HUSSSAIN",730110,"Dr. Rikin Desai",50,50,-
+"Gynecologist  Department","JIGNASHBEN J BHANPURIYA",720110,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","JIGNASHBEN J BHANPURIYA",710110,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","RANCHODBHAI RUMALBHAI PATEL",700110,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","JIGNASHBEN J BHANPURIYA",690110,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","SHENAJBEN A SHEKH",680110,"Dr. Priyanka Dixit",50,50,-
+"Gynecologist  Department","MANIBHAI  PATEL",670110,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","URMILABEN KAMLESHKUMAR BARIAA",660110,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","PANKAJ M JANI",650110,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department","URMILABEN KAMLESHKUMAR BARIAA",640110,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","PANKAJ M JANI",630110,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department","URMILABEN KAMLESHKUMAR BARIAA",620110,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","MONIKA BHATIYA",610110,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department",MANISHABEN,600110,"Dr. Vipul Mehta",100,100,-
+"Gynecologist  Department","MILINBHAI PURANI",590110,"Dr. Priyanka Dixit",50,50,-
+"Gynecologist  Department","MONIKA BHATIYA",580110,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department","MONIKA BHATIYA",570110,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department","MONIKA BHATIYA",560110,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department","MONIKA BHATIYA",550110,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department",MANISHABEN,543009,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","MAHEK BEN   VAGWANI",533009,"Dr. Priyanka Dixit",1,1,-
+"Gynecologist  Department","SACHITA BHATIA",523009,"Dr. Priyanka Dixit",100,100,-
+"Gynecologist  Department","SACHITA BHATIA",513009,"Dr. Priyanka Dixit",100,100,-
+"Gynecologist  Department","DAVE RAJU BHAI",503009,"DR.C K DAMOR",20,20,-
+"Gynecologist  Department","IMRAN MOHAMAD HANIF",493009,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","DHANTIYA FURKAN MUSHTAK",483009,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","RASHIDBHAI YUSUFBHAI PATHAN",473009,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","BIJALBHAI PRATAPBHAI BHAMAT",463009,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","TAHIR AHMAD HUSEN",453009,"DR.ARUSHI PATEL",20,20,-
+"Gynecologist  Department","TAHIR AHMAD HUSEN",453009,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","BABUBHAI TERSINH RATHVA",443009,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","MONIKA BHATIYA",72609,"Dr. Rikin Desai",0,1510,ECHO
+"Gynecologist  Department","MONIKA BHATIYA",72609,"Dr. Rikin Desai",0,1560,ECG
+"Gynecologist  Department","MONIKA BHATIYA",72609,"Dr. Rikin Desai",0,1610,ECG
+"Gynecologist  Department","FAAZA SULTAN MAMJI",433009,"DR.ARUSHI PATEL",20,20,-
+"Gynecologist  Department","FAAZA SULTAN MAMJI",433009,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","KARISHMABEN PRABHATSINH BARIA",423009,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","KARISHMABEN PRABHATSINH BARIA",413009,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","KARISHMABEN PRABHATSINH BARIA",403009,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","KARISHMABEN PRABHATSINH BARIA",393009,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","PANKAJ M JANI",382809,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","RAJUBHAI R DAVE",372809,"DR.ARUSHI PATEL",0,0,-
+"Gynecologist  Department","RAJUBHAI R DAVE",372809,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","PANKAJKUMAR M JANI",362809,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","RATAN BHAI JALA BHAI KATARA",352709,"DR.ARUSHI PATEL",30,30,-
+"Gynecologist  Department","NAGDAV CHDRKANT BHAI",342709,"DR.C K DAMOR",20,20,-
+"Gynecologist  Department","PANKAJ JANI",332709,"DR.C K DAMOR",20,20,-
+"Gynecologist  Department","MONIKA BHATIYA",72609,"Dr. Rikin Desai",50,50,-
+"Gynecologist  Department","REKHABEN PATEL",312609,"DR.C K DAMOR",0,0,-
+"Gynecologist  Department","BHATIYA PRAVIN BHAI S",322709,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department","REKHABEN PATEL",312609,"DR.C K DAMOR",50,50,-
+"Gynecologist  Department",RAMESHBHAI,182609,"Dr. Priyanka Dixit",100,100,-
+"Gynecologist  Department","MONIKA BHATIYA",302609,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department",PANKAJBHAIJANI,292609,"Dr. Priyanka Dixit",100,100,-
+"Gynecologist  Department","SACHITA BHATIA",282609,"Dr. Priyanka Dixit",20,20,-
+"Gynecologist  Department","PANKAJ M JANI",272609,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department","PANKAJBHAI  M  JANI",252609,"Dr. Vipul Mehta",30,30,-
+"Gynecologist  Department","PANKAJBHAI  M  JANI",252609,"Dr. Vipul Mehta",0,0,-
+"Gynecologist  Department","SACHITA MARWADI",262609,"Dr. Priyanka Dixit",100,100,-
+"Gynecologist  Department","PANKAJBHAI  M  JANI",252609,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department",VEDANT,242609,"Dr. Priyanka Dixit",20,20,-
+"Gynecologist  Department","PANKAJ M JANI",222609,"DR.C K DAMOR",20,20,-
+"Gynecologist  Department",RAMILABEN,232609,"Dr. Priyanka Dixit",50,50,-
+"Gynecologist  Department","PANKAJ M JANI",222609,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department",KOKILABENPARIKH,212609,"Dr. Priyanka Dixit",20,20,-
+"Gynecologist  Department","LALACHADBHAI R KATARA",152609,"DR.C K DAMOR",20,20,-
+"Gynecologist  Department",RAMESHBHAI,182609,"Dr. Priyanka Dixit",0,50,"Neck TREATMENT"
+"Gynecologist  Department",RAMESHBHAI,182609,"Dr. Priyanka Dixit",0,50,"Neck TREATMENT"
+"Gynecologist  Department","MONIKA BHATIYA",202609,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department","MONIKA BHATIYA",192609,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department",RAMESHBHAI,182609,"Dr. Priyanka Dixit",20,20,-
+"Gynecologist  Department","SACHITA BHATIA",162609,"Dr. Priyanka Dixit",0,50,"Neck TREATMENT"
+"Gynecologist  Department","MONIKA BHATIYA",172609,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department","LALACHADBHAI R KATARA",152609,"DR.C K DAMOR",20,20,-
+"Gynecologist  Department","SACHITA BHATIA",162609,"Dr. Priyanka Dixit",20,20,-
+"Gynecologist  Department",RAMILA,122609,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","LALACHADBHAI R KATARA",152609,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","LALABHAI MANSHUKHBHAI  BARIA",142609,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department",RAMILA,122609,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","MONIKA BHATIYA",132609,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department",RAMILA,122609,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","GANAPATBHAI DALASHUKHBHAI BARIA",112609,"DR.C K DAMOR",20,20,-
+"Gynecologist  Department","GANAPATBHAI DALASHUKHBHAI BARIA",112609,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department",MANISHABEN,92609,"Dr. Vipul Mehta",0,3000,"NORMAL DELIEVERY"
+"Gynecologist  Department",MANISHABEN,92609,"Dr. Vipul Mehta",0,1500,"NORMAL DELIEVERY"
+"Gynecologist  Department",MANISHABEN,92609,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","MONIKA BHATIYA",102609,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department",MANISHABEN,92609,"Dr. Vipul Mehta",50,50,-
+"Gynecologist  Department","ABDULRAZAK  ABDULLA MOLVI",82609,"DR.C K DAMOR",20,20,-
+"Gynecologist  Department","ABDULRAZAK  ABDULLA MOLVI",82609,"DR.C K DAMOR",30,30,-
+"Gynecologist  Department","MONIKA BHATIYA",72609,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department","MONIKA BHATIYA",72609,"Dr. Rikin Desai",0,100,ECG
+"Gynecologist  Department","MONIKA BHATIYA",72609,"Dr. Rikin Desai",100,100,-
+"Gynecologist  Department","NOORJAHAN DHANTIYA",62509,"DR.ARUSHI PATEL",0,150,"Ceramic cap & Bridge, SCALLING"
+"Gynecologist  Department","NOORJAHAN DHANTIYA",62509,"DR.ARUSHI PATEL",20,20,-

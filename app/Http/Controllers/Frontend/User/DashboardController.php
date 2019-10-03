@@ -541,7 +541,7 @@ class DashboardController extends Controller
     {
         $booking = Booking::where('id', $id)->with(['doctor', 'patient', 'surgeries', 'surgeries.surgery'])->first();
         
-        if(isset($booking) && $booking->department_id == 1)
+        if(isset($booking) && $booking->department_id == 3)
         {
             return view('frontend.pdf.eye-surgery')->with([
                 'booking' => $booking
