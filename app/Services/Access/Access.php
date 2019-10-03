@@ -191,9 +191,22 @@ public function user()
 
     public function getQueueNumber()
     {
-        $today = date('d-m-Y');
+        $today      = date('Y-m-d');
+        $department = $this->getCurrentDepartment();
 
-        $lastBooking = Booking::where('booking_date', $today)->orderBy('id', 'desc')->first();
+        if(isset($department))
+        {
+            $lastBooking = Booking::whereDate('created_at', $today)
+                ->where('department_id', $department->id)
+                ->orderBy('id', 'desc')
+                ->first();
+        }
+        else
+        {
+            $lastBooking = Booking::where('booking_date', $today)
+                ->orderBy('id', 'desc')
+                ->first();   
+        }
 
         if(isset($lastBooking))
         {
@@ -238,5 +251,41 @@ public function user()
         }
 
         return '';
+    }
+
+    public function getCurrentDepartment()
+    {
+        $user = $this->user();
+
+        if(isset($user->department_id))
+        {
+            $deparment = Department::where('id', $user->department_id)->first();
+
+            if(isset($deparment))
+            {
+                return $deparment;
+            }
+        }
+
+        return false;
+    }
+
+    public function getDepartmentNumber()
+    {
+        $department = $this->getCurrentDepartment();
+        
+        if(isset($department))
+        {
+            $lastBooking = Booking::where('department_id', $department->id)
+                ->orderBy('id', 'desc')
+                ->first();
+
+            if(isset($lastBooking))
+            {
+                return $lastBooking->department_number + 1;
+            }
+        }
+
+        return 1;
     }
 }

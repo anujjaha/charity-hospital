@@ -24,6 +24,9 @@
                             </a>
                         @endif
                     </li>
+                    <li class="nav-item">
+                        Department : {{  access()->getUserDepartment() }}
+                    </li>
                     <li class="nav-item dropdown mr-4">
                         <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
                             <i class="mdi mdi-bell mx-0"></i> </a>

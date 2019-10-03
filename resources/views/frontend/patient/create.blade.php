@@ -49,6 +49,11 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="city">City</label>
+                        <input id="city" name="city" type="text" class="form-control">
+                    </div>
+
+                    <div class="form-group">
                         <label for="notes">Notes</label>
                         <textarea name="notes" class="form-control"></textarea>
                     </div>

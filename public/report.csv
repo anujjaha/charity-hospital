@@ -1,3 +1,4 @@
 Department,"Patient Name","Patient Number",Doctor,Fees,Total,Surgery
-Dental,"RRESH PATEL",12708,"MR Gandhi",0,400,"Dental, Teeth Cleaning"
-Dental,"RRESH PATEL",12708,"MR Gandhi",250,400,Dental
+Dental,GENERAL,43009,"MR Gandhi",50,50,"Dental, Teeth Cleaning"
+Dental,GENERAL,43009,"General DOC",100,100,-
+Dental,GENERAL,43009,"General DOC",100,100,-

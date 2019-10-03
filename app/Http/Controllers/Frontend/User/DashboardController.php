@@ -12,7 +12,8 @@ use App\Models\Surgery\Surgery;
 use App\Models\Department\Department;
 use App\Models\Doctor\Doctor;
 use App\Models\PatientSurgery\PatientSurgery;
-use Barryvdh\DomPDF\Facade as PDF;
+//use Barryvdh\DomPDF\Facade as PDF;
+use PDF;
 use Carbon\Carbon;
 use Response;
 
@@ -119,6 +120,7 @@ class DashboardController extends Controller
                 $patient->validity      = $input['validity'];
                 $patient->mobile        = $input['mobile'];
                 $patient->address       = $input['address'];
+                $patient->city          = isset($input['city']) ? strtoupper($input['city']) : 'GODHRA';
                 $patient->notes         = $input['notes'];
 
                 if($patient->save())
@@ -227,6 +229,7 @@ class DashboardController extends Controller
             'address'   => isset($input['patient_address']) ? strtoupper($input['patient_address']) : '',
             'age'       => isset($input['patient_age']) ? $input['patient_age'] : 0,
             'mobile'    => isset($input['mobile']) ? $input['mobile'] : 0,
+            'city'      => isset($input['city']) ? strtoupper($input['city']) : 'GODHRA'
         ];
         
         $patient = Patient::create($patientData);
@@ -238,6 +241,7 @@ class DashboardController extends Controller
             'doctor_id'         => isset($input['doctor_id']) ? $input['doctor_id'] : null,
             'department_id'     => access()->user()->department_id,
             'patient_id'        => $patient->id,
+            'department_number' => access()->getDepartmentNumber(),
             'queue_number'      => access()->getQueueNumber(),
             'consulting_fees'   => isset($input['fees']) ? $input['fees'] : 0,
             'total'             => isset($input['fees']) ? $input['fees'] : 0,
@@ -289,14 +293,15 @@ class DashboardController extends Controller
             }
             
             $inputData = [
-                'department_id' => access()->user()->department_id,
-                'patient_id'    => $patient->id,
-                'doctor_id'     => $input['doctor_id'],
-                'queue_number'  => access()->getQueueNumber(),
-                'consulting_fees' => $consulting,
-                'total'         => $consulting + $surgeryTotal,
-                'booking_date'  => date('d-m-Y'),
-                'notes'         => $gnotes ? $gnotes : 'New Surgery Created'
+                'department_id'     => access()->user()->department_id,
+                'patient_id'        => $patient->id,
+                'doctor_id'         => $input['doctor_id'],
+                'department_number' => access()->getDepartmentNumber(),
+                'queue_number'      => access()->getQueueNumber(),
+                'consulting_fees'   => $consulting,
+                'total'             => $consulting + $surgeryTotal,
+                'booking_date'      => date('d-m-Y'),
+                'notes'             => $gnotes ? $gnotes : 'New Surgery Created'
             ];
 
             $booking = Booking::create($inputData);
@@ -625,5 +630,32 @@ class DashboardController extends Controller
         );
 
         return Response::download($filename, 'report.csv', $headers);
+    }
+
+    public function printPDFHistory(Request $request)
+    {
+        $startDate  = date('Y-m-d', strtotime('-2 months')) . ' 00:00:00';
+        $endDate    = date('Y-m-d') . ' 23:59:59';
+        $input      = $request->all();
+        $department = access()->getCurrentDepartment();
+
+        if($request->has('startDate') && $request->has('endDate'))
+        {
+            $startDate  = $request->get('startDate');
+            $endDate    = $request->get('endDate');
+        }
+        
+        $data = Booking::where('created_at', '>=', $startDate)
+            ->where('created_at', '<=', $endDate)
+            ->where('department_id', $department->id)
+            ->with(['doctor', 'patient', 'surgeries', 'surgeries.surgery'])
+            ->orderBy('id', 'desc')
+            ->get();
+
+        
+        $departmentName = $department->name;
+        $pdf = PDF::loadView('frontend.pdf.pdf-report', compact('data', 'startDate', 'endDate', 'departmentName'));
+        
+        return $pdf->download('report.pdf');
     }
 }

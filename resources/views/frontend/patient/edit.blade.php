@@ -48,6 +48,11 @@
                         <textarea name="address"  class="form-control">{!! $patient->address !!}</textarea>
                     </div>
 
+                     <div class="form-group">
+                        <label for="city">City</label>
+                        <input id="city"  value="{!! $patient->city !!}"  name="city" type="text" class="form-control">
+                    </div>
+
                     <div class="form-group">
                         <label for="notes">Notes</label>
                         <textarea name="notes" class="form-control">{!! $patient->notes !!}</textarea>

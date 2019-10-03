@@ -32,6 +32,13 @@
                 ]) !!}" class="btn btn-primary mr-2 mt-1" target="_blank">
                   Print
                 </a>
+
+                <a href="{!! route('frontend.user.history.print-pdf', [
+                  'startDate' => $startDate,
+                  'endDate'   => $endDate
+                ]) !!}" class="btn btn-primary mr-2 mt-1" target="_blank">
+                  PDF
+                </a>
               </form>
             </div>
           <div class="clearfix"></div>
@@ -41,7 +48,7 @@
               <table id="all-listing"  class="table table-striped">
                 <thead>
                   <tr>
-                      <th>Sr no.</th>
+                      <th>Serial No.</th>
                       <th>Print</th>
                       <th>Patient</th>
                       <th>Patient Number</th>
@@ -61,7 +68,7 @@
                     @if(isset($bookings))
                         @foreach($bookings as $booking)
                             <tr class="erow">
-                                <td>{!! $booking->id !!}</td>
+                                <td>{!! $booking->department_number !!}</td>
                                 <td>  
                                   <a class="btn btn-primary" target="_blank" href="{!! route('frontend.user.receipt.print', ['id' => $booking->id ]) !!}">
                                     Print

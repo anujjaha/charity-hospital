@@ -222,7 +222,7 @@
                         <td>
                         	દર્દી નું નામ : {!! $booking->patient->name !!}<br>
                             ઉમર : {!! $booking->patient->age !!}<br>
-                            ગામ : GODHRA
+                            ગામ : {!! isset($booking->patient->city) ? $booking->patient->city : 'GODHRA' !!}
                             </td>
                             <td>
                                 બીલ નં : {!! $booking->id !!}<br>

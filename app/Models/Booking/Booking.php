@@ -24,7 +24,7 @@ class Booking extends BaseModel
      *
      */
     protected $fillable = [
-        "id", "department_id", "doctor_id", "patient_id", "queue_number", "consulting_fees", "total", "notes", "booking_date", "status", "created_at", "updated_at", 
+        "id", "department_id", "department_number", "doctor_id", "patient_id", "queue_number", "consulting_fees", "total", "notes", "booking_date", "status", "created_at", "updated_at", 
     ];
 
     /**
