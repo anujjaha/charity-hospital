@@ -107,6 +107,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::any('history', 'DashboardController@history')->name('history.list');
         Route::any('receipt/{id}/print', 'DashboardController@print')->name('receipt.print');
         Route::any('receipt/{id}/print-eye', 'DashboardController@printEye')->name('receipt.print-eye');
+        Route::any('receipt/{id}/print-case-paper', 'DashboardController@printCasePaper')->name('receipt.print-case-paper');
         
         Route::any('history/print', 'DashboardController@printHistory')->name('history.print');
         Route::any('history/print-pdf', 'DashboardController@printPDFHistory')->name('history.print-pdf');

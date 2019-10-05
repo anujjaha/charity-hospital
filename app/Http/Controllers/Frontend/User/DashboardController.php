@@ -564,6 +564,20 @@ class DashboardController extends Controller
         return redirect()->route('frontend.index');
     }
 
+    public function printCasePaper($id, Request $request)
+    {
+        $booking = Booking::where('id', $id)->with(['doctor', 'patient', 'surgeries', 'surgeries.surgery'])->first();
+        
+        if(isset($booking) && isset($booking->id))
+        {
+            return view('frontend.pdf.cash-paper')->with([
+                'booking' => $booking
+            ]);
+        }
+
+        return redirect()->route('frontend.index');
+    }
+
     public function print($id, Request $request)
     {
         $booking = Booking::where('id', $id)->with(['doctor', 'patient', 'surgeries', 'surgeries.surgery'])->first();

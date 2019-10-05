@@ -73,12 +73,15 @@
                                   <a class="btn btn-primary" target="_blank" href="{!! route('frontend.user.receipt.print', ['id' => $booking->id ]) !!}">
                                     Print
                                   </a> 
-								  {{-- dd($booking) --}}
-
+								                  
                                   @if(isset($booking->department_id) && $booking->department_id == 3)
                                     <a class="btn btn-primary" target="_blank" href="{!! route('frontend.user.receipt.print-eye', ['id' => $booking->id ]) !!}">
                                       Eye Print 
                                     </a>
+                                  @else
+                                    <a class="btn btn-primary" target="_blank" href="{!! route('frontend.user.receipt.print-case-paper', ['id' => $booking->id ]) !!}">
+                                      Case Paper
+                                    </a> 
                                   @endif
                                 </td>
                                 <td>{!! $booking->patient->name !!}</td>
