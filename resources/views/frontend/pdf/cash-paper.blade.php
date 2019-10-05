@@ -225,101 +225,16 @@
                             ગામ : {!! isset($booking->patient->city) ? $booking->patient->city : 'GODHRA' !!}
                             </td>
                             <td>
-                                બીલ નં : {!! $booking->department_number !!}<br>
+                                બીલ નં : <strong>{!! $booking->department_number !!}</strong><br>
                                 તારીખ : {!! date('d-m-Y', strtotime($booking->created_at)) !!}<br>
                                 મોબાઈલ નંબર : {!! $booking->patient->mobile !!}
                             </td>
                         </tr>
-                        <tr class="information">
-                        <td colspan="2">
-                            <table>
-                                <tr style="text-align:center;line-height:1.6;">
-                                    <td><h4 style="margin:0;">PRESCRIPTION</h4></td>
-                                </tr>
-                                <tr>
-                                	<td>
-                                    	<table id="items">
-                                            <tbody>
-                                            <tr>
-                                                <th>NO.</th>
-                                                <th>Details</th>
-                                            </tr>
-                                            @for($i = 0; $i < 14; $i++)
-                                                <tr class="item-row">
-                                                    <td width="50"></td>
-                                                    <td class="description"></td>
-                                                </tr>
-                                            @endfor
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr class="information">
-                <td colspan="2">
-                    <table style="padding-top:50px;">
-                        <tr>
-                            <td><strong></strong></td>
-                            <td><strong>DR. SIGN</strong></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td style="line-height: 1.4;font-size:13px;">
-                	હોસ્પિટલ માં ઉપલબ્ધ સુવિધા :	<br>
-                    ૧. આંખ ની તાપસ - ૨. દાંત ની સારવાર	- ૩. શરીર ના તમામ રોગો ની સારવાર ( ફિઝિશિયન )	<br>
-                    ૪. નવજાત શિશુ ની સારવાર - ૫.પ્રસુતિગૃહ - ૬.લેબોરેટોરી , એક્સ રે , સોનોગ્રાફી - ૭.ફિઝિયોથેરાપી <br>
-                    </td>
-                </tr>
         </table>
+        <br />
+        <hr>
+        <br />
         <table cellpadding="0" cellspacing="0">
-                    <tr class="information">
-                        <td colspan="2">
-                            <table style="text-align:center;margin-top:15px;border-top:1px dotted #555;">
-                                <tr>
-                                    <td><h3 style="margin:0;padding-top:15px;padding-bottom:5px;">CASH RECCIEPT</h3>
-                                   	સદવિચાર પરિવાર મેડિકલ સેન્ટર , ગોધરા</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    	<tr>
-                        <td width="50%" style="text-align: right;"><strong>બીલ નં : </strong></td>
-                        <td style="text-align: left; padding-left: 10px;">{!! $booking->department_number !!}</td>
-                        </tr>
-                        <tr>
-                        <td style="text-align: right;"><strong>કેસ નંબર: </strong></td>
-                        <td  style="text-align: left; padding-left: 10px;">{!! $booking->queue_number !!}</td>
-                        </tr>
-                        <tr>
-                        <td style="text-align: right;"><strong>UNIQUE ID NO. : </strong></td>
-                        <td  style="text-align: left; padding-left: 10px;">{!!  $booking->patient->patient_number !!}</td>
-                        </tr>
-                        <tr>
-                        <td style="text-align: right;"><strong>તારીખ : </strong></td>
-                        <td  style="text-align: left; padding-left: 10px;">{!! date('d-m-Y', strtotime($booking->created_at)) !!}</td>
-                        </tr>
-                        <tr>
-                        <td style="text-align: right;"><strong>દર્દી નું નામ : </strong></td>
-                        <td  style="text-align: left; padding-left: 10px;">{!! ucfirst($booking->patient->name) !!}</td>
-                        </tr>
-                        <tr>
-                        <td style="text-align: right;"><strong>ગામ : </strong></td>
-                        <td style="text-align: left; padding-left: 10px;">
-                            {!! isset($booking->patient->city) ? $booking->patient->city : 'GODHRA' !!}
-                        </td>
-                        </tr>
-                        <tr>
-                        <td style="text-align: right;"><strong> મોબાઈલ નંબર : </strong></td> 
-                        <td style="text-align: left; padding-left: 10px;">{!! $booking->patient->mobile !!}</td>
-                        </tr>
-                        <tr>
-                        <td style="text-align: right;"><strong>કેસ ફી : </strong></td>
-                        <td style="text-align: left; padding-left: 10px;">{!! $booking->total !!}/-</td>
-                    </tr>
         </table>
     </div>
 </body>
