@@ -12,6 +12,8 @@ use App\Models\Surgery\Surgery;
 use App\Models\Department\Department;
 use App\Models\Doctor\Doctor;
 use App\Models\PatientSurgery\PatientSurgery;
+use App\Models\XRay\XRay;
+use App\Models\PatientXRay\PatientXRay;
 //use Barryvdh\DomPDF\Facade as PDF;
 use PDF;
 use Carbon\Carbon;
@@ -224,12 +226,12 @@ class DashboardController extends Controller
     {
         $input       = $request->all(); 
         $patientData = [
-        'name'          => isset($input['patient_name']) ? strtoupper($input['patient_name']) : '',
+            'name'          => isset($input['patient_name']) ? strtoupper($input['patient_name']) : '',
             'validity'  => isset($input['patient_validity']) ? $input['patient_validity'] : 6,
             'address'   => isset($input['patient_address']) ? strtoupper($input['patient_address']) : '',
+            'city'      => isset($input['patient_city']) ? strtoupper($input['patient_city']) : 'GODHRA',
             'age'       => isset($input['patient_age']) ? $input['patient_age'] : 0,
-            'mobile'    => isset($input['mobile']) ? $input['mobile'] : 0,
-            'city'      => isset($input['city']) ? strtoupper($input['city']) : 'GODHRA'
+            'mobile'    => isset($input['mobile']) ? $input['mobile'] : 0
         ];
         
         $patient = Patient::create($patientData);
@@ -272,9 +274,9 @@ class DashboardController extends Controller
             $consulting = 0;
             $surgeryTotal = 0;
             $gnotes     = null;
-			$sgIds      = $input['surgery_id'];
+			$sgIds      = isset($input['surgery_id']) ? $input['surgery_id'] : null;
 
-            if(isset($input['surgery_id']) && isset($input['surgery_fees']))
+            if($sgIds && isset($input['surgery_id']) && isset($input['surgery_fees']))
             {
                 $totalFees = 0;
 
@@ -529,7 +531,7 @@ class DashboardController extends Controller
 
             $dateInput = explode("-", $input['endDate']);
             $customDate = $dateInput[1] . '/' . $dateInput[0]. '/'. $dateInput[2];
-            $endDate    = Carbon::parse($endDate)->format('Y-m-d') . ' 23:59:59';;
+            $endDate    = Carbon::parse($customDate)->format('Y-m-d') . ' 23:59:59';;
         }
         
         $deptId     = access()->user()->department_id;
@@ -643,7 +645,15 @@ class DashboardController extends Controller
         $startDate  = date('Y-m-d', strtotime('-2 months')) . ' 00:00:00';
         $endDate    = date('Y-m-d') . ' 23:59:59';
         $input      = $request->all();
-        $department = access()->getCurrentDepartment();
+
+        if(access()->user()->id == 1)
+        {
+            $department = Department::where('id', $input['deptId'])->first();
+        }
+        else
+        {
+            $department = access()->getCurrentDepartment();
+        }
 
         if($request->has('startDate') && $request->has('endDate'))
         {
@@ -655,7 +665,7 @@ class DashboardController extends Controller
             ->where('created_at', '<=', $endDate)
             ->where('department_id', $department->id)
             ->with(['doctor', 'patient', 'surgeries', 'surgeries.surgery'])
-            ->orderBy('id', 'desc')
+            ->orderBy('id')
             ->get();
 
         
@@ -663,5 +673,222 @@ class DashboardController extends Controller
         $pdf = PDF::loadView('frontend.pdf.pdf-report', compact('data', 'startDate', 'endDate', 'departmentName'));
         
         return $pdf->download('report.pdf');
+    }
+
+    public function showXrayForm()
+    {
+        $user = access()->user();
+
+        if($user)
+        {
+            $condition  = [
+                'status'        => 1,
+                'department_id' => $user->department_id 
+            ];
+        }
+        else
+        {
+            $condition  = [
+                'status'        => 1 
+            ];
+        }
+
+        $doctors    = Doctor::where($condition)->pluck('name', 'id')->toArray();
+        $xRays      = XRay::get();
+
+        return view('frontend.x-ray.show-form')->with([
+            'doctors'       => $doctors,
+            'xRays'         => $xRays
+        ]);
+    }
+
+    public function storeXray(Request $request)
+    {
+        $input = $request->all();
+
+        $patientData = [
+            'name'      => isset($input['patient_name']) ? strtoupper($input['patient_name']) : '',
+            'validity'  => isset($input['patient_validity']) ? $input['patient_validity'] : 6,
+            'address'   => isset($input['patient_address']) ? strtoupper($input['patient_address']) : '',
+            'city'      => isset($input['patient_city']) ? strtoupper($input['patient_city']) : 'GODHRA',
+            'age'       => isset($input['patient_age']) ? $input['patient_age'] : 0,
+            'mobile'    => isset($input['mobile']) ? $input['mobile'] : 0
+        ];
+
+        $patient = Patient::create($patientData);
+
+        if(isset($patient))
+        {
+            $patient->patient_number = $patient->id . date('d') . date('m');
+
+            $patient->save();
+        }
+
+        if(isset($input['doctor_id']))
+        {
+            $doctor = Doctor::where('id', $input['doctor_id'])->first();
+        }
+
+        $selectedXray   = $input['xrayR'];
+        $myXray         = XRay::where('id', $selectedXray)->first();
+
+        if(isset($myXray) && isset($myXray->id))
+        {
+            $xrayTitle      = $myXray->title;
+            $xrayCost       = $input['xray'][$selectedXray];
+            $xrayDesc       = $input['xrayD'][$selectedXray];
+
+            $xRayData = [
+                'department_id'     => access()->user()->department_id,
+                'patient_id'        => $patient->id,
+                'xray_id'           => $input['xrayR'],
+                'doctor_id'         => isset($input['doctor_id']) ? $input['doctor_id'] : null,
+                'doctor_name'       => (isset($input['doctor_id']) && isset($doctor) && isset($doctor->id) )? $doctor->name : $input['outside_doctor'],
+                'xray_title'        => $xrayTitle,
+                'xray_cost'         => $xrayCost,
+                'xray_description'  => $xrayDesc
+            ];
+
+            $xRayPatient = PatientXRay::create($xRayData);
+
+            if($xRayPatient)
+            {
+                return redirect()->route('frontend.user.x-ray.list')->withFlashSuccess('XRay Added Successfully!');
+            }
+        }
+        
+        return redirect()->route('frontend.user.x-ray.list')->withFlashDanger('Unable to Add XRay!');;
+    }
+
+    public function storeNewXray(Request $request)
+    {
+        $input      = $request->all();
+        $patient    = Patient::where('patient_number', $input['new_patient_id'])->first();
+
+        if(isset($patient))
+        {
+            if(isset($input['doctor_id']))
+            {
+                $doctor = Doctor::where('id', $input['doctor_id'])->first();
+            }
+
+            $selectedXray   = $input['xrayR'];
+            $myXray         = XRay::where('id', $selectedXray)->first();
+
+            if(isset($myXray) && isset($myXray->id))
+            {
+                $xrayTitle      = $myXray->title;
+                $xrayCost       = $input['xray'][$selectedXray];
+                $xrayDesc       = $input['xrayD'][$selectedXray];
+
+                $xRayData = [
+                    'department_id'     => access()->user()->department_id,
+                    'patient_id'        => $patient->id,
+                    'xray_id'           => $input['xrayR'],
+                    'doctor_id'         => isset($input['doctor_id']) ? $input['doctor_id'] : null,
+                    'doctor_name'       => (isset($input['doctor_id']) && isset($doctor) && isset($doctor->id) )? $doctor->name : $input['outside_doctor'],
+                    'xray_title'        => $xrayTitle,
+                    'xray_cost'         => $xrayCost,
+                    'xray_description'  => $xrayDesc
+                ];
+
+                $xRayPatient = PatientXRay::create($xRayData);
+
+                if($xRayPatient)
+                {
+                    return redirect()->route('frontend.user.x-ray.list')->withFlashSuccess('XRay Added Successfully!');
+                }
+            }
+        }
+
+        return redirect()->route('frontend.user.x-ray.list')->withFlashDanger('Unable to Add XRay!');;
+    }
+
+    public function xrayList(Request $request)
+    {
+        $startDate  = date('Y-m-d', strtotime('-2 months')) . ' 00:00:00';
+        $endDate    = date('Y-m-d') . ' 23:59:59';
+        $input      = $request->all();
+
+        if($request->has('startDate') && $request->has('endDate'))
+        {
+            $dateInput = explode("-", $input['startDate']);
+            $customDate = $dateInput[1] . '/' . $dateInput[0]. '/'. $dateInput[2];
+            $startDate = Carbon::parse($customDate)->format('Y-m-d') . ' 00:00:00';
+
+            $edateInput = explode("-", $input['endDate']);
+            $ecustomDate = $edateInput[1] . '/' . $edateInput[0]. '/'. $edateInput[2];
+            $endDate    = Carbon::parse($ecustomDate)->format('Y-m-d') . ' 23:59:59';
+        }
+
+        $xrays = PatientXRay::where('department_id', access()->user()->department_id)
+            ->where('created_at', '>=', $startDate)
+            ->where('created_at', '<=', $endDate)
+            ->orderBy('id', 'desc')
+            ->get();
+
+        
+        return view('frontend.x-ray.list')->with([
+            'xrays'         => $xrays,
+            'startDate'     => $startDate,
+            'endDate'       => $endDate
+        ]);        
+    }
+
+    public function xrayPrint($id, Request $request)
+    {
+        $xray = PatientXRay::where('id', $id)
+            ->first();
+
+        if(isset($xray) && isset($xray->id))
+        {
+            return view('frontend.pdf.xray')->with([
+                'xray' => $xray
+            ]);
+        }
+
+        return redirect()->route('frontend.index');
+    }
+
+
+    public function reportPDF(Request $request)
+    {
+        $department = access()->getCurrentDepartment();
+        $startDate  = date('Y-m-d', strtotime('-2 months')) . ' 00:00:00';
+        $endDate    = date('Y-m-d') . ' 23:59:59';
+        $input      = $request->all();
+        $department = access()->getCurrentDepartment();
+
+        if($request->has('startDate') && $request->has('endDate'))
+        {
+            $startDate  = $request->get('startDate');
+            $endDate    = $request->get('endDate');
+        }
+
+        if(access()->user()->id == 1)
+        {
+            $data = PatientXRay::where('created_at', '>=', $startDate)
+            ->where('created_at', '<=', $endDate)
+            ->with(['patient'])
+            ->orderBy('id')
+            ->get();
+
+            $departmentName = "Admin Report";
+        }
+        else
+        {
+            $data = PatientXRay::where('department_id', $department->id)
+                ->where('created_at', '>=', $startDate)
+                ->where('created_at', '<=', $endDate)
+                ->with(['patient'])
+                ->orderBy('id')
+                ->get();
+            $departmentName = $department->name;
+        }
+
+
+        $pdf = PDF::loadView('frontend.pdf.pdf-xray-report', compact('data', 'startDate', 'endDate', 'departmentName'));
+        
+        return $pdf->download('report.pdf');        
     }
 }

@@ -86,7 +86,7 @@
                                 <td>Dr. {!! $booking->doctor->name !!}</td>
                                 <td>{!! $booking->queue_number !!}</td>
                                 <td>{!! $booking->consulting_fees !!}</td>
-                                <td>{!! $booking->total !!}</td>
+                                <td style="text-align: right;">{!! $booking->total !!}</td>
                                 <td>
                                   @if(isset($booking->surgeries) && count($booking->surgeries))
                                     {!! access()->getBookingSurgeries($booking->surgeries) !!}
@@ -107,8 +107,8 @@
                   <td>-</td>
                   <td colspan="5" align="center" class="text-bold">
                   Total for {!! date('d-m-Y', strtotime($startDate)) !!} - {!! date('d-m-Y', strtotime($endDate)) !!}</td>
-                  <td>{!! $total !!}</td>
                   <td>-</td>
+                  <td style="text-align: right;">{!! $total !!}</td>
                   <td>-</td>
                 </tr>
               </table>

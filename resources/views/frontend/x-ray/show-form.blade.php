@@ -14,7 +14,7 @@
         <div id="Add_Patient" class="col-md-6 p-0 grid-margin stretch-card m-auto">
             <div class="card">
                 <div class="card-body">
-                <div class="text-center col-sm-12"><h4 class="card-title mb-3">Add Patient</h4>
+                <div class="text-center col-sm-12"><h4 class="card-title mb-3">Add X-Ray</h4>
                     <div class="form-check-inline">
                         <label class="form-check-label">
                         <input type="radio" class="form-check-input" name="optradio" value="New">
@@ -31,7 +31,7 @@
                     </div>
                 </div>
 
-                <form method="post" action="{!! route('frontend.user.patient.create') !!}" id="add_new" style="display:none;">
+                <form method="post" action="{!! route('frontend.user.x-ray.store') !!}" id="add_new" style="display:none;">
                     <div class="form-group">
                         <label for="patient_name">{!! trans('labels.patel.patient_name') !!}</label>
                         <input  required="required" name="patient_name" type="text" class="form-control">
@@ -50,7 +50,7 @@
                         <label for="">{!! trans('labels.patel.patient_validity') !!}</label>
                         <select  required="required" name="patient_validity" class="form-control">
                             <option value="">Select</option>
-                            <option value="1">01</option>
+                            <option selected="selected" value="1">01</option>
                             <option value="2">02</option>
                             <option value="3">03</option>
                             <option value="4">04</option>
@@ -73,20 +73,53 @@
                         <label for="doctor_id">{!! trans('labels.patel.consult_doctor') !!}</label>
                         {{ Form::select('doctor_id', ['' => 'Please select Doctor'] + $doctors, null, [
                             'id'    => 'doctor_id',
-                            'class' => 'form-control',
-                            'required'
+                            'class' => 'form-control'
                         ]) }}
                     </div>
+
                     <div class="form-group">
-                        <label for="">{!! trans('labels.patel.consulting_fees') !!}</label>
-                        <input required="required" name="fees" id="doctor_fees" type="text" class="form-control">
+                        <center><h1>OR</h1></center>
                     </div>
+
+                    <div class="form-group">
+                        <label for="">{!! trans('labels.patel.consult_doctor') !!}</label>
+                        <input name="outside_doctor" id="outside_doctor" type="text" class="form-control">
+                    </div>
+
+                    @if(isset($xRays) && count($xRays))
+                        <table class="table">
+                            <tr>
+                                <td>X-Ray Type</td>
+                                <td>Price</td>
+                                <td>Description</td>
+                            </tr>
+                            @foreach($xRays as $xRay)
+                                <tr>
+                                    <td>
+                                        <div class="form-control">
+                                        <label class="control-label">
+                                            <input value="{!! $xRay->id !!}" class="form-control" type="radio" name="xrayR">
+                                            {{ $xRay->title }} ( ₹  {{ $xRay->cost }} )
+                                        </label>
+                                        </div>
+                                    </td>
+                                    <td><input class="form-control" name="xray[{!! $xRay->id !!}]" type="text" value="{{ $xRay->cost }}"></td>
+                                    <td>
+                                        <input  class="form-control" name="xrayD[{!! $xRay->id !!}]" type="text" placeholder="X-Ray Details" value="">
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </table>
+                    @endif
+                    
+
+                    
                     {{ csrf_field() }}
                     <input type="submit" name="save-new" value="Add"  class="btn btn-success mr-2 mt-1">
                     <input type="reset" class="btn btn-info" value="Reset">
                 </form>
 
-                <form method="post" action="{!! route('frontend.user.booking.create') !!}" id="add_old" style="display:none;">
+                <form method="post" action="{!! route('frontend.user.x-ray.new') !!}" id="add_old" style="display:none;">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="">{!! trans('labels.patel.patient_number') !!}</label>
@@ -110,7 +143,7 @@
                         <label for="">{!! trans('labels.patel.patient_validity') !!}</label>
                         <select required="required" name="patient_validity" id="patient_validity" class="form-control">
                             <option value="">Select</option>
-                            <option value="1">01</option>
+                            <option selected="selected" value="1">01</option>
                             <option value="2">02</option>
                             <option value="3">03</option>
                             <option value="4">04</option>
@@ -118,59 +151,53 @@
                             <option value="6">06</option>
                         </select>
                     </div>
-    
+                    
                     <div class="form-group">
                         <label for="doctor_id">{!! trans('labels.patel.consult_doctor') !!}</label>
                         {{ Form::select('doctor_id', ['' => 'Please select Doctor'] + $doctors, null, [
-                            'class' => 'form-control',
-                            'required',
-                            'id'    => 'general_doctor_id'
+                            'id'    => 'doctor_id',
+                            'class' => 'form-control'
                         ]) }}
                     </div>
-                    
+
                     <div class="form-group">
-                    <label for="">{!! trans('labels.patel.select_surgery') !!}</label>
-
-                        <div class="form-check display-block">
-                        <label class="form-check-label display-inline">
-                            <input name="general" type="checkbox" value="general" class="form-check-input">
-                            General
-                        </label>
-                        <label>
-                            
-                        </label>
-
-                            <input  name="general_notes" placeholder="Notes" type="text" class="form-control display-inline radio-input">
-
-                            <input placeholder="General Fees" id="general_fees"  name="general_fees" type="text" class="form-control display-inline radio-input">
-
-
-                        </div>
-
-                        @if(isset($surgeries))
-                            @foreach($surgeries as $surgery)
-                                <div class="form-check display-block">
-                                <label class="form-check-label display-inline">
-                                    <input name="surgery_id[{!! $surgery->id !!}]" type="checkbox" value="{!! $surgery->id !!}" class="form-check-input">
-                                    {!! $surgery->title !!}
-                                </label>
-                                <label>
-                                    ( ₹ {!! $surgery->fees !!}  )
-                                </label>
-
-                                <input  name="surgery_notes[{!! $surgery->id !!}]" type="text" placeholder="Notes" class="form-control display-inline radio-input">
-
-                                <input name="surgery_fees[{!! $surgery->id !!}]" value="{!! $surgery->fees !!}" type="number" placeholder="Fees" step="1" min="0" class="form-control display-inline radio-input">
-
-                                
-                                </div>
-                            @endforeach
-                        @endif
+                        <center><h1>OR</h1></center>
                     </div>
 
+                    <div class="form-group">
+                        <label for="">{!! trans('labels.patel.consult_doctor') !!}</label>
+                        <input name="outside_doctor" id="outside_doctor" type="text" class="form-control">
+                    </div>
+
+                    @if(isset($xRays) && count($xRays))
+                        <table class="table">
+                            <tr>
+                                <td>X-Ray Type</td>
+                                <td>Price</td>
+                                <td>Description</td>
+                            </tr>
+                            @foreach($xRays as $xRay)
+                                <tr>
+                                    <td>
+                                        <div class="form-control">
+                                        <label class="control-label">
+                                            <input value="{!! $xRay->id !!}" class="form-control" type="radio" name="xrayR">
+                                            {{ $xRay->title }} ( ₹  {{ $xRay->cost }} )
+                                        </label>
+                                        </div>
+                                    </td>
+                                    <td><input class="form-control" name="xray[{!! $xRay->id !!}]" type="text" value="{{ $xRay->cost }}"></td>
+                                    <td>
+                                        <input  class="form-control" name="xrayD[{!! $xRay->id !!}]" type="text" placeholder="X-Ray Details" value="">
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </table>
+                    @endif
+                    
                     <input type="hidden" name="new_patient_id" id="new_patient_id">
                     <input type="submit" name="Create" value="Save" class="btn btn-success mr-2 mt-1">
-                    <a class="btn btn-info mr-2 mt-1" href="{!! route('frontend.user.history.list') !!}">
+                    <a class="btn btn-info mr-2 mt-1" href="{!! route('frontend.user.x-ray.list') !!}">
                         History
                     </a>
                     </div>

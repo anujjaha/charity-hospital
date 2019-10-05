@@ -111,5 +111,13 @@ Route::group(['middleware' => 'auth'], function () {
         Route::any('history/print', 'DashboardController@printHistory')->name('history.print');
         Route::any('history/print-pdf', 'DashboardController@printPDFHistory')->name('history.print-pdf');
         
+        // Xray Form
+        Route::any('x-ray/form', 'DashboardController@showXrayForm')->name('x-ray.form');
+        Route::any('x-ray/store', 'DashboardController@storeXray')->name('x-ray.store');
+        Route::any('x-ray/create-new', 'DashboardController@storeNewXray')->name('x-ray.new');
+        Route::any('x-ray/list', 'DashboardController@xrayList')->name('x-ray.list');
+        Route::any('x-ray/{id}/print', 'DashboardController@xrayPrint')->name('x-ray.print');
+        Route::any('xray/report-pdf', 'DashboardController@reportPDF')->name('xray.report-pdf');
+        
     });
 });

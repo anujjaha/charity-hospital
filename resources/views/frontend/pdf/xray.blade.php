@@ -2,10 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Surgery Invoice</title>
+    <title>X-Ray</title>
     
     <style>
-	@page {
+    @page {
   size: A4;
   margin:20px;
 }
@@ -86,7 +86,7 @@
     .rtl table tr td:nth-child(2) {
         text-align: left;
     }
-	#items td{text-align:left;padding:0;height:24px;}
+    #items td{text-align:left;padding:0;height:24px;}
 @media print {
   html, body {
     width: 210mm;
@@ -171,8 +171,8 @@
     .rtl table tr td:nth-child(2) {
         text-align: left;
     }
-	#items td{text-align:left;padding:0;height:24px;}
-	}
+    #items td{text-align:left;padding:0;height:24px;}
+    }
     </style>
 </head>
 
@@ -184,34 +184,8 @@
                             <table>
                                 <tr style="text-align:center;line-height:1.6;">
                                     <td>સદવિચાર પરિવાર ગોધરા સંચાલિત<br>
-                                        @if($booking->department_id == 1)
+                                       
                                             પી. ટી. મીરાણીના સહયોગથી
-                                            <h3 style="margin:5px;">સ્વ. સદા બા વિઠ્ઠલભાઈ પટેલ મેડીકલ સેન્ટર</h3>
-                                            સ્વ. અમુલખરાય ભાઉરાય દેસાઈ
-                                            <h3 style="margin:2px;">દાંતનું દવાખાનું</h3>
-                                        @endif
-
-                                        @if($booking->department_id == 2)
-                                           પી. ટી. મીરાણીના સહયોગથી
-                                            <h3 style="margin:5px;">સ્વ. સદા બા વિઠ્ઠલભાઈ પટેલ કલીનીક</h3>
-                                        @endif
-
-                                        @if($booking->department_id == 3)
-                                            <h3 style="margin:5px;">પી. ટી. મીરાણી આઈ હોસ્પિટલ એન્ડ રોટરી આઈ કેર સેન્ટર</h3>
-                                        @endif
-
-                                        @if($booking->department_id == 4)
-                                            પી. ટી. મીરાણીના સહયોગથી 
-                                            <h3 style="margin:5px;">સ્વ. ચંપાબેન અંબાલાલ શાહ (ખારોલવાળા)</h3>
-                                            <h3 style="margin:2px;">સાર્વજનિક પ્રસુતિગૃહ</h3>
-                                        @endif
-
-                                        @if($booking->department_id == 5)
-                                            પી. ટી. મીરાણીના સહયોગથી 
-                                            <h3 style="margin:5px;">સ્વ. સદા બા વિઠ્ઠલભાઈ પટેલ મેડીકલ સેન્ટર</h3>
-                                             સ્વ. સવિતાબેન રતિલાલ દેસાઈ
-                                            <h3 style="margin:2px;">ફીઝીયોથેરાપી સેન્ટર</h3>
-                                        @endif
                                     </td>
                                 </tr>
                             </table>
@@ -220,66 +194,45 @@
                     
                         <tr>
                         <td>
-                        	દર્દી નું નામ : {!! $booking->patient->name !!}<br>
-                            ઉમર : {!! $booking->patient->age !!}<br>
-                            ગામ : {!! isset($booking->patient->city) ? $booking->patient->city : 'GODHRA' !!}
+                            દર્દી નું નામ : {!! $xray->patient->name !!}<br>
+                            ઉમર : {!! $xray->patient->age !!}<br>
+                            ગામ : {!! isset($xray->patient->city) ? $xray->patient->city : 'GODHRA' !!}
                             </td>
                             <td>
-                                બીલ નં : {!! $booking->department_number !!}<br>
-                                તારીખ : {!! date('d-m-Y', strtotime($booking->created_at)) !!}<br>
-                                મોબાઈલ નંબર : {!! $booking->patient->mobile !!}	
+                                બીલ નં : {!! $xray->id !!}<br>
+                                તારીખ : {!! date('d-m-Y', strtotime($xray->created_at)) !!}<br>
+                                મોબાઈલ નંબર : {!! $xray->patient->mobile !!} 
                             </td>
                         </tr>
                         <tr class="information">
                         <td colspan="2">
                             <table>
                                 <tr style="text-align:center;line-height:1.6;">
-                                    <td><h4 style="margin:0;">SURGERY</h4></td>
+                                    <td><h4 style="margin:0;">X-Ray</h4></td>
                                 </tr>
                                 <tr>
-                                	<td>
-                                    	<table id="items">
+                                    <td>
+                                        <table id="items">
                                             <tbody>
                                             <tr>
                                                 <th>NO.</th>
-                                                <th>NAME</th>
-                                                <th>PRICE</th>
+                                                <th>Title</th>
+                                                <th>Fees</th>
                                             </tr>
-                                            @if(isset($booking) && isset($booking->consulting_fees) && $booking->consulting_fees > 0)
-                                             <tr class="item-row">
-                                                    <td width="30" style="border-bottom: 1px solid gray;">1
-                                                    <td style="border-bottom: .5px solid gray;" class="description">
-                                                    {!! isset($booking->notes) ? $booking->notes : 'Consulting Fees' !!}
-                                                    </td>
-                                                    <td style="border-bottom: 1px solid gray;">
-                                                    {!! number_format($booking->consulting_fees, 2) !!}/-</td>
-                                                </tr>
-                                            @endif
-                                            @php
-                                                $sr     = isset($booking->consulting_fees) && $booking->consulting_fees > 0 ? 2 : 1;
-                                                $total  = isset($booking->consulting_fees) ? $booking->consulting_fees : 0;
-                                            @endphp
+                                            
+                                            <tr class="item-row">
+                                                <td width="30" style="border-bottom: 1px solid gray;">1</td>
+                                                <td style="border-bottom: .5px solid gray;" class="description">
+                                                {!! $xray->xray_title !!}
+                                                @if(strlen( $xray->xray_description) > 1)
+                                                    ({!! $xray->xray_description !!})
+                                                @endif
+                                                </td>
+                                                <td style="border-bottom: 1px solid gray;">
+                                                {!! number_format($xray->xray_cost, 2) !!}/-</td>
+                                            </tr>
 
-
-                                            @foreach($booking->surgeries as $surgery)
-                                                <tr class="item-row">
-                                                    <td width="30" style="border-bottom: 1px solid gray;">{!! $sr !!}</td>
-                                                    <td style="border-bottom: .5px solid gray;" class="description">
-                                                    {!! $surgery->surgery->title !!}
-                                                    @if(strlen( $surgery->notes) > 1)
-                                                        ({!! $surgery->notes !!})
-                                                    @endif
-                                                    </td>
-                                                    <td style="border-bottom: 1px solid gray;">
-                                                    {!! number_format($surgery->surgery_fees, 2) !!}/-</td>
-                                                </tr>
-                                                @php
-                                                    $sr++;
-                                                    $total = $total + $surgery->surgery_fees;
-                                                @endphp
-
-                                            @endforeach
-                                            @for($i = $sr; $i <= 10; $i++)
+                                            @for($i = 0; $i <= 10; $i++)
                                                 <tr class="item-row">
                                                     <td></td>
                                                     <td class="description"></td>
@@ -293,7 +246,7 @@
                                                    <strong>Total</strong>
                                                 </td>
                                                 <td style="border-bottom: 1px solid gray;">
-                                                <strong>{!! number_format($total, 2) !!}/-</strong>
+                                                <strong>{!! number_format($xray->xray_cost, 2) !!}/-</strong>
                                                 </td>
                                             </tr>
 

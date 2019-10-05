@@ -114,6 +114,15 @@
                         </span>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{!! route('frontend.user.x-ray.list') !!}" class="nav-link">
+                        <i class="mdi mdi-star-outline menu-icon"></i>
+                        <span class="menu-title">X-Ray
+                        </span>
+                    </a>
+                </li>
+
                 <li class="nav-item">
                     <a href="{!! route('frontend.auth.logout') !!}" class="nav-link">
                         <i class="mdi mdi-star-outline menu-icon"></i>

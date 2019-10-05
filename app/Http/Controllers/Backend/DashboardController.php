@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Booking\Booking;
 use Carbon\Carbon;
 use App\Models\Department\Department;
+use App\Models\PatientXRay\PatientXRay;
 
 /**
  * Class DashboardController.
@@ -33,7 +34,7 @@ class DashboardController extends Controller
     	{
     		$dateInput = explode("-", $input['endDate']);
             $customDate = $dateInput[1] . '/' . $dateInput[0]. '/'. $dateInput[2];
-    		$endDate	= Carbon::parse($endDate)->format('Y-m-d') . ' 23:59:59';;
+    		$endDate	= Carbon::parse($customDate)->format('Y-m-d') . ' 23:59:59';;
     	}
     	
     	$bookings = Department::with(['bookings' => function($q) use($startDate, $endDate)
@@ -42,8 +43,15 @@ class DashboardController extends Controller
     			->where('created_at', '<=', $endDate);
     	}])
     	->get();
-    	
+
+        $xrays = PatientXRay::with(['patient', 'department'])
+            ->where('created_at', '>=', $startDate)
+            ->where('created_at', '<=', $endDate)
+            ->orderBy('id', 'desc')
+            ->get();
+    	   
     	return view('backend.dashboard')->with([
+            'xrays'     => $xrays,
     		'bookings' 	=> $bookings,
     		'startDate' => $startDate,
     		'endDate'	=> $endDate

@@ -67,6 +67,13 @@
                 </a>
             </li>
 
+            <li class="{{ active_class(Active::checkUriPattern('admin/xray')) }}">
+                <a href="{{ route('admin.xray.index') }}">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    <span>Manage X-Rays</span>
+                </a>
+            </li>
+
             @role(1)
             <li class="{{ active_class(Active::checkUriPattern('admin/access/*')) }} treeview">
                 <a href="#">

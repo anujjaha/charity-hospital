@@ -225,7 +225,7 @@
                             ગામ : {!! isset($booking->patient->city) ? $booking->patient->city : 'GODHRA' !!}
                             </td>
                             <td>
-                                બીલ નં : {!! $booking->id !!}<br>
+                                બીલ નં : {!! $booking->department_number !!}<br>
                                 તારીખ : {!! date('d-m-Y', strtotime($booking->created_at)) !!}<br>
                                 મોબાઈલ નંબર : {!! $booking->patient->mobile !!}
                             </td>
@@ -293,7 +293,7 @@
                     </tr>
                     	<tr>
                         <td width="50%" style="text-align: right;"><strong>બીલ નં : </strong></td>
-                        <td style="text-align: left; padding-left: 10px;">{!! $booking->id !!}</td>
+                        <td style="text-align: left; padding-left: 10px;">{!! $booking->department_number !!}</td>
                         </tr>
                         <tr>
                         <td style="text-align: right;"><strong>કેસ નંબર: </strong></td>
@@ -313,16 +313,18 @@
                         </tr>
                         <tr>
                         <td style="text-align: right;"><strong>ગામ : </strong></td>
-                        <td  style="text-align: left; padding-left: 10px;">GODHRA</td>
+                        <td style="text-align: left; padding-left: 10px;">
+                            {!! isset($booking->patient->city) ? $booking->patient->city : 'GODHRA' !!}
+                        </td>
                         </tr>
                         <tr>
                         <td style="text-align: right;"><strong> મોબાઈલ નંબર : </strong></td> 
-                        <td  style="text-align: left; padding-left: 10px;">{!! $booking->patient->mobile !!}</td>
+                        <td style="text-align: left; padding-left: 10px;">{!! $booking->patient->mobile !!}</td>
                         </tr>
                         <tr>
                         <td style="text-align: right;"><strong>કેસ ફી : </strong></td>
-                        <td  style="text-align: left; padding-left: 10px;">{!! $booking->total !!}/-</td>
-                        </tr>
+                        <td style="text-align: left; padding-left: 10px;">{!! $booking->total !!}/-</td>
+                    </tr>
         </table>
     </div>
 </body>
