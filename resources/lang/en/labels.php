@@ -26,7 +26,13 @@ return [
         'patient_validity'  => 'Valid For (In Month)',
         'consult_doctor'    => 'Consult Doctor',
         'consulting_fees'   => 'Consulting Fee',
-        'select_surgery'    => 'Select Surgery'
+        'select_surgery'    => 'Select Surgery',
+        'error_msg1'        => 'SYSTEM',
+        'error_msg2'        => 'FAILURE',
+        'error_msg3'        => '(ERROR)',
+        'error_msg4'        => 'PLEASE ',
+        'error_msg5'        => 'CONTACT',
+        'error_msg6'        => 'ADMIN'
     ],
 
 

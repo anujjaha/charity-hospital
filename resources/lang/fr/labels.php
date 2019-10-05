@@ -25,7 +25,14 @@ return [
         'patient_validity'  => 'માન્ય (મહિનાઓ)',
         'consult_doctor'    => 'ડૉક્ટર પસંદ કરો',
         'consulting_fees'   => 'ફી',
-        'select_surgery'    => 'સારવાર'
+        'select_surgery'    => 'સારવાર',
+
+        'error_msg1'        => 'SYSTEM',
+        'error_msg2'        => 'FAILURE',
+        'error_msg3'        => '(ERROR)',
+        'error_msg4'        => 'PLEASE ',
+        'error_msg5'        => 'CONTACT',
+        'error_msg6'        => 'ADMIN'
     ],
 
     'general' => [

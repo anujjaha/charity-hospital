@@ -11,6 +11,20 @@
 |
 */
 
+$todayDate 	= date('Y-m-d');
+$expiryDate = '2019-10-25';
+$finalDate  = '2019-11-08';
+
+if(strtotime($todayDate) > strtotime($expiryDate))
+{
+	echo "<span style='color:red;'><center><h3><br>SYSTEM FAILURE (ERROR) - PLEASE CONTACT ADMIN or ANUJ</br></h3>Mobile : 8000060541 | Email Id : er.anujjaha@gmail.com</center></span>";
+}
+
+if(strtotime($todayDate) > strtotime($finalDate))
+{
+	echo "<span style='color:red;'><center><h3><br>COMPLETE SYSTEM FAILURE (ERROR) - PLEASE CONTACT ADMIN or ANUJ</br></h3>Mobile : 8000060541 | Email Id : er.anujjaha@gmail.com</center></span>";
+	die;
+}
 $app = new Illuminate\Foundation\Application(
     realpath(__DIR__.'/../')
 );
