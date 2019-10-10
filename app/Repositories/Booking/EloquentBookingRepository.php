@@ -9,6 +9,8 @@
 use App\Models\Booking\Booking;
 use App\Repositories\DbRepository;
 use App\Exceptions\GeneralException;
+use App\Models\Doctor\Doctor;
+use App\Models\Patient\Patient;
 
 class EloquentBookingRepository extends DbRepository
 {
@@ -24,7 +26,7 @@ class EloquentBookingRepository extends DbRepository
      *
      * @var string
      */
-    public $moduleTitle = 'Booking';
+    public $moduleTitle = 'Records';
 
     /**
      * Table Headers
@@ -32,16 +34,13 @@ class EloquentBookingRepository extends DbRepository
      * @var array
      */
     public $tableHeaders = [
-        'id'        => 'Id',
-'doctor_id'        => 'Doctor_id',
-'patient_id'        => 'Patient_id',
-'queue_number'        => 'Queue_number',
-'consulting_fees'        => 'Consulting_fees',
-'notes'        => 'Notes',
-'status'        => 'Status',
-'created_at'        => 'Created_at',
-'updated_at'        => 'Updated_at',
-"actions"         => "Actions"
+        'id'                => 'Id',
+        'doctor_name'       => 'Doctor',
+        'patient_name'      => 'Patient',
+        'consulting_fees'   => 'Consulting Fees',
+        'total'             => 'Total',
+        'created_at'        => 'Created At',
+        "actions"           => "Actions"
     ];
 
     /**
@@ -56,39 +55,28 @@ class EloquentBookingRepository extends DbRepository
                 'searchable'    => true,
                 'sortable'      => true
             ],
-		'doctor_id' =>   [
-                'data'          => 'doctor_id',
-                'name'          => 'doctor_id',
+		'doctor_name' =>   [
+                'data'          => 'doctor_name',
+                'name'          => 'doctor_name',
                 'searchable'    => true,
                 'sortable'      => true
             ],
-		'patient_id' =>   [
-                'data'          => 'patient_id',
-                'name'          => 'patient_id',
+		'patient_name' =>   [
+                'data'          => 'patient_name',
+                'name'          => 'patient_name',
                 'searchable'    => true,
                 'sortable'      => true
             ],
-		'queue_number' =>   [
-                'data'          => 'queue_number',
-                'name'          => 'queue_number',
-                'searchable'    => true,
-                'sortable'      => true
-            ],
+		
 		'consulting_fees' =>   [
                 'data'          => 'consulting_fees',
                 'name'          => 'consulting_fees',
                 'searchable'    => true,
                 'sortable'      => true
             ],
-		'notes' =>   [
-                'data'          => 'notes',
-                'name'          => 'notes',
-                'searchable'    => true,
-                'sortable'      => true
-            ],
-		'status' =>   [
-                'data'          => 'status',
-                'name'          => 'status',
+        'total' =>   [
+                'data'          => 'total',
+                'name'          => 'total',
                 'searchable'    => true,
                 'sortable'      => true
             ],
@@ -98,12 +86,7 @@ class EloquentBookingRepository extends DbRepository
                 'searchable'    => true,
                 'sortable'      => true
             ],
-		'updated_at' =>   [
-                'data'          => 'updated_at',
-                'name'          => 'updated_at',
-                'searchable'    => true,
-                'sortable'      => true
-            ],
+		
 		'actions' => [
             'data'          => 'actions',
             'name'          => 'actions',
@@ -180,7 +163,10 @@ class EloquentBookingRepository extends DbRepository
      */
     public function __construct()
     {
-        $this->model = new Booking;
+        $this->model        = new Booking;
+        $this->doctorModel  = new Doctor;
+        $this->patientModel = new Patient;
+
     }
 
     /**
@@ -278,7 +264,9 @@ class EloquentBookingRepository extends DbRepository
     public function getTableFields()
     {
         return [
-            $this->model->getTable().'.*'
+            $this->model->getTable().'.*',
+            $this->doctorModel->getTable().'.name as doctor_name',
+            $this->patientModel->getTable().'.name as patient_name'
         ];
     }
 
@@ -287,7 +275,11 @@ class EloquentBookingRepository extends DbRepository
      */
     public function getForDataTable()
     {
-        return $this->model->select($this->getTableFields())->get();
+        return $this->model->select($this->getTableFields())
+        ->leftjoin($this->doctorModel->getTable(), $this->doctorModel->getTable().'.id', '=', $this->model->
+            getTable().'.doctor_id')
+        ->leftjoin($this->patientModel->getTable(), $this->patientModel->getTable().'.id', '=', $this->model->getTable().'.patient_id')
+        ->get();
     }
 
     /**

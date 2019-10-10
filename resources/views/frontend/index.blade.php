@@ -59,10 +59,10 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="">{!! trans('labels.patel.patient_address') !!}</label>
                         <input required="required" name="patient_address" id="patient_address" type="text" class="form-control">
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <label for="">{!! trans('labels.patel.patient_city') !!}</label>

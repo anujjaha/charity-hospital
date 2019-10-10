@@ -74,6 +74,13 @@
                 </a>
             </li>
 
+            <li class="{{ active_class(Active::checkUriPattern('admin/booking')) }}">
+                <a href="{{ route('admin.booking.index') }}">
+                    <i class="fa fa-list" aria-hidden="true"></i>
+                    <span>Manage Records</span>
+                </a>
+            </li>
+
             @role(1)
             <li class="{{ active_class(Active::checkUriPattern('admin/access/*')) }} treeview">
                 <a href="#">
