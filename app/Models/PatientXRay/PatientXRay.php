@@ -24,7 +24,7 @@ class PatientXRay extends BaseModel
      *
      */
     protected $fillable = [
-        "id", "department_id", "xray_id", "patient_id", "doctor_id", "doctor_name", "xray_title", "xray_cost", "xray_description", "created_at", "updated_at", 
+        "id", "parent_id", "department_id", "xray_id", "patient_id", "doctor_id", "doctor_name", "xray_title", "xray_cost", "xray_description", "created_at", "updated_at", 
     ];
 
     /**

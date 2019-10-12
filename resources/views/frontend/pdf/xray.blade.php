@@ -231,8 +231,30 @@
                                                 <td style="border-bottom: 1px solid gray;">
                                                 {!! number_format($xray->xray_cost, 2) !!}/-</td>
                                             </tr>
-
-                                            @for($i = 0; $i <= 10; $i++)
+                                            @if(isset($xray->chlidren) && count($xray->chlidren))
+                                                @php
+                                                    $sr = 2;
+                                                @endphp
+                                                @foreach($xray->chlidren as $smXray)
+                                                    <tr class="item-row">
+                                                        <td width="30" style="border-bottom: 1px solid gray;">
+                                                            {!! $sr !!}
+                                                        </td>
+                                                        <td style="border-bottom: .5px solid gray;" class="description">
+                                                        {!! $smXray->xray_title !!}
+                                                        @if(strlen( $smXray->xray_description) > 1)
+                                                            ({!! $smXray->xray_description !!})
+                                                        @endif
+                                                        </td>
+                                                        <td style="border-bottom: 1px solid gray;">
+                                                        {!! number_format($smXray->xray_cost, 2) !!}/-</td>
+                                                    </tr>
+                                                    @php
+                                                        $sr++;
+                                                    @endphp
+                                                @endforeach
+                                            @endif
+                                            @for($i = $sr; $i <= 10; $i++)
                                                 <tr class="item-row">
                                                     <td></td>
                                                     <td class="description"></td>
@@ -246,7 +268,16 @@
                                                    <strong>Total</strong>
                                                 </td>
                                                 <td style="border-bottom: 1px solid gray;">
-                                                <strong>{!! number_format($xray->xray_cost, 2) !!}/-</strong>
+                                                <strong>
+                                                    @if(isset($xray->chlidren) && count($xray->chlidren))
+                                                        @php
+                                                            $total = $xray->xray_cost + $xray->chlidren->sum('xray_cost');
+                                                            echo number_format($total, 2);
+                                                        @endphp
+                                                    @else
+                                                        {!! number_format($xray->xray_cost, 2) !!}
+                                                    @endif
+                                                /-</strong>
                                                 </td>
                                             </tr>
 

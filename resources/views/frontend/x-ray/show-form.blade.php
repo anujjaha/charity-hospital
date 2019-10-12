@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">{!! trans('labels.patel.patient_age') !!}</label>
-                        <input required="required" name="patient_age" type="number" min="0" max="100" step="1" class="form-control">
+                        <input required="required" name="patient_age" type="number" min="0" max="120" step="1" class="form-control">
                     </div>
 
                     <div class="form-group">
@@ -98,7 +98,7 @@
                                     <td>
                                         <div class="form-control">
                                         <label class="control-label">
-                                            <input value="{!! $xRay->id !!}" class="form-control" type="radio" name="xrayR">
+                                            <input value="{!! $xRay->id !!}" class="form-control" type="checkbox" name="xrayR[{!! $xRay->id !!}]">
                                             {{ $xRay->title }} ( ₹  {{ $xRay->cost }} )
                                         </label>
                                         </div>
@@ -137,7 +137,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">{!! trans('labels.patel.patient_age') !!}</label>
-                        <input required="required" type="text" class="form-control" id="patient_age" name="patient_age" value="0">
+                        <input required="required" min="0" max="120" step="1" type="number" class="form-control" id="patient_age" name="patient_age" value="0">
                     </div>
                     <div class="form-group">
                         <label for="">{!! trans('labels.patel.patient_validity') !!}</label>
@@ -181,7 +181,8 @@
                                     <td>
                                         <div class="form-control">
                                         <label class="control-label">
-                                            <input value="{!! $xRay->id !!}" class="form-control" type="radio" name="xrayR">
+                                            
+                                            <input value="{!! $xRay->id !!}" class="form-control"type="checkbox" name="xrayR[{!! $xRay->id !!}]">
                                             {{ $xRay->title }} ( ₹  {{ $xRay->cost }} )
                                         </label>
                                         </div>

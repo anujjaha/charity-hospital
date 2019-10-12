@@ -720,6 +720,8 @@ class DashboardController extends Controller
     {
         $input = $request->all();
 
+        //dd($input);
+
         $patientData = [
             'name'      => isset($input['patient_name']) ? strtoupper($input['patient_name']) : '',
             'validity'  => isset($input['patient_validity']) ? $input['patient_validity'] : 6,
@@ -743,34 +745,65 @@ class DashboardController extends Controller
             $doctor = Doctor::where('id', $input['doctor_id'])->first();
         }
 
+        
         $selectedXray   = $input['xrayR'];
-        $myXray         = XRay::where('id', $selectedXray)->first();
+        $fXray          = null;
+        $xRayData       = [];
+        $myXray         = XRay::whereIn('id', $selectedXray)->get();
 
-        if(isset($myXray) && isset($myXray->id))
+        if(isset($myXray) && count($myXray))
         {
-            $xrayTitle      = $myXray->title;
-            $xrayCost       = $input['xray'][$selectedXray];
-            $xrayDesc       = $input['xrayD'][$selectedXray];
-
-            $xRayData = [
-                'department_id'     => access()->user()->department_id,
-                'patient_id'        => $patient->id,
-                'xray_id'           => $input['xrayR'],
-                'doctor_id'         => isset($input['doctor_id']) ? $input['doctor_id'] : null,
-                'doctor_name'       => (isset($input['doctor_id']) && isset($doctor) && isset($doctor->id) )? $doctor->name : $input['outside_doctor'],
-                'xray_title'        => $xrayTitle,
-                'xray_cost'         => $xrayCost,
-                'xray_description'  => $xrayDesc
-            ];
-
-            $xRayPatient = PatientXRay::create($xRayData);
-
-            if($xRayPatient)
+            $sr = 0;
+            foreach($myXray as $myX)
             {
-                return redirect()->route('frontend.user.x-ray.list')->withFlashSuccess('XRay Added Successfully!');
+                $xrayTitle      = $myX->title;
+                $xrayCost       = $input['xray'][$myX->id];
+                $xrayDesc       = $input['xrayD'][$myX->id];
+               
+                if($sr == 0) 
+                {
+                    $firstXRay = [
+                        'department_id'     => access()->user()->department_id,
+                        'patient_id'        => $patient->id,
+                        'xray_id'           => $myX->id,
+                        'doctor_id'         => isset($input['doctor_id']) ? $input['doctor_id'] : null,
+                        'doctor_name'       => (isset($input['doctor_id']) && isset($doctor) && isset($doctor->id) )? $doctor->name : $input['outside_doctor'],
+                        'xray_title'        => $xrayTitle,
+                        'xray_cost'         => $xrayCost,
+                        'xray_description'  => $xrayDesc
+                    ];
+
+                    $fXray = PatientXRay::create($firstXRay);
+                }
+                else
+                {
+                    $xRayData[] = [
+                        'parent_id'         => isset($fXray) ? $fXray->id : null,
+                        'department_id'     => access()->user()->department_id,
+                        'patient_id'        => $patient->id,
+                        'xray_id'           => $myX->id,
+                        'doctor_id'         => isset($input['doctor_id']) ? $input['doctor_id'] : null,
+                        'doctor_name'       => (isset($input['doctor_id']) && isset($doctor) && isset($doctor->id) )? $doctor->name : $input['outside_doctor'],
+                        'xray_title'        => $xrayTitle,
+                        'xray_cost'         => $xrayCost,
+                        'xray_description'  => $xrayDesc
+                    ];
+                }
+
+                $sr++;
+            }
+
+            if(isset($xRayData) && count($xRayData))
+            {
+                $xRayPatient = PatientXRay::insert($xRayData);
+                
+                if($xRayPatient)
+                {
+                    return redirect()->route('frontend.user.x-ray.list')->withFlashSuccess('XRay Added Successfully!');
+                }
             }
         }
-        
+            
         return redirect()->route('frontend.user.x-ray.list')->withFlashDanger('Unable to Add XRay!');;
     }
 
@@ -787,6 +820,64 @@ class DashboardController extends Controller
             }
 
             $selectedXray   = $input['xrayR'];
+            $fXray          = null;
+            $xRayData       = [];
+            $myXray         = XRay::whereIn('id', $selectedXray)->get();
+
+            if(isset($myXray) && count($myXray))
+            {
+                $sr = 0;
+                foreach($myXray as $myX)
+                {
+                    $xrayTitle      = $myX->title;
+                    $xrayCost       = $input['xray'][$myX->id];
+                    $xrayDesc       = $input['xrayD'][$myX->id];
+                   
+                    if($sr == 0) 
+                    {
+                        $firstXRay = [
+                            'department_id'     => access()->user()->department_id,
+                            'patient_id'        => $patient->id,
+                            'xray_id'           => $myX->id,
+                            'doctor_id'         => isset($input['doctor_id']) ? $input['doctor_id'] : null,
+                            'doctor_name'       => (isset($input['doctor_id']) && isset($doctor) && isset($doctor->id) )? $doctor->name : $input['outside_doctor'],
+                            'xray_title'        => $xrayTitle,
+                            'xray_cost'         => $xrayCost,
+                            'xray_description'  => $xrayDesc
+                        ];
+
+                        $fXray = PatientXRay::create($firstXRay);
+                    }
+                    else
+                    {
+                        $xRayData[] = [
+                            'parent_id'         => isset($fXray) ? $fXray->id : null,
+                            'department_id'     => access()->user()->department_id,
+                            'patient_id'        => $patient->id,
+                            'xray_id'           => $myX->id,
+                            'doctor_id'         => isset($input['doctor_id']) ? $input['doctor_id'] : null,
+                            'doctor_name'       => (isset($input['doctor_id']) && isset($doctor) && isset($doctor->id) )? $doctor->name : $input['outside_doctor'],
+                            'xray_title'        => $xrayTitle,
+                            'xray_cost'         => $xrayCost,
+                            'xray_description'  => $xrayDesc
+                        ];
+                    }
+
+                    $sr++;
+                }
+
+                if(isset($xRayData) && count($xRayData))
+                {
+                    $xRayPatient = PatientXRay::insert($xRayData);
+                    
+                    if($xRayPatient)
+                    {
+                        return redirect()->route('frontend.user.x-ray.list')->withFlashSuccess('XRay Added Successfully!');
+                    }
+                }
+            }
+
+            /*$selectedXray   = $input['xrayR'];
             $myXray         = XRay::where('id', $selectedXray)->first();
 
             if(isset($myXray) && isset($myXray->id))
@@ -812,7 +903,7 @@ class DashboardController extends Controller
                 {
                     return redirect()->route('frontend.user.x-ray.list')->withFlashSuccess('XRay Added Successfully!');
                 }
-            }
+            }*/
         }
 
         return redirect()->route('frontend.user.x-ray.list')->withFlashDanger('Unable to Add XRay!');;
@@ -835,13 +926,13 @@ class DashboardController extends Controller
             $endDate    = Carbon::parse($ecustomDate)->format('Y-m-d') . ' 23:59:59';
         }
 
-        $xrays = PatientXRay::where('department_id', access()->user()->department_id)
+        $xrays = PatientXRay::with('chlidren')->where('department_id', access()->user()->department_id)
             ->where('created_at', '>=', $startDate)
             ->where('created_at', '<=', $endDate)
+            ->where('parent_id', NULL)
             ->orderBy('id', 'desc')
             ->get();
 
-        
         return view('frontend.x-ray.list')->with([
             'xrays'         => $xrays,
             'startDate'     => $startDate,
@@ -851,7 +942,7 @@ class DashboardController extends Controller
 
     public function xrayPrint($id, Request $request)
     {
-        $xray = PatientXRay::where('id', $id)
+        $xray = PatientXRay::with('chlidren')->where('id', $id)
             ->first();
 
         if(isset($xray) && isset($xray->id))
