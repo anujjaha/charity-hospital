@@ -982,7 +982,7 @@ class DashboardController extends Controller
         }
         else
         {
-            $data = PatientXRay::where('department_id', $department->id)
+            $data = PatientXRay::with(['patient', 'department', 'chlidren'])->where('department_id', $department->id)
                 ->where('created_at', '>=', $startDate)
                 ->where('created_at', '<=', $endDate)
                 ->with(['patient'])
