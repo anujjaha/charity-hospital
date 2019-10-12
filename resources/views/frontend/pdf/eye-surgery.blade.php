@@ -217,7 +217,15 @@
                 <tr class="border">
                     <td>AGE : {!! $booking->patient->age !!} </td>
                     <td style="width: 200px;text-align: left;">
+                        City : {!! $booking->patient->city !!} 
+                    </td>
+                </tr>
+                <tr class="border">
+                    <td>
                         Unique Number : {!! $booking->patient->patient_number !!}
+                    </td>
+                    <td style="width: 200px;text-align: left;">
+                        Bill Number : {!! $booking->department_number !!}<br>
                     </td>
                 </tr>
             </table>
