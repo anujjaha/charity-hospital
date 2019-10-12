@@ -117,12 +117,39 @@
                                             <td>{!! $xray->patient->name !!}</td>
                                             <td>{!! $xray->patient->patient_number !!}</td>
                                             <td>Dr. {!! $xray->doctor_name !!}</td>
-                                            <td>{!! $xray->xray_title !!}</td>
-                                            <td>{!! $xray->xray_cost !!}</td>
-                                            <td>{!! $xray->xray_description !!}</td>
+
+                                            <td>
+                                              {!! $xray->xray_title !!}
+                                              @if(isset($xray->chlidren) && count($xray->chlidren))
+                                              <br>
+                                                {!! implode(",", $xray->chlidren->pluck('xray_title')->toArray()) !!}
+                                              @endif
+                                            </td>
+                                            <td>
+                                              @if(isset($xray->chlidren) && count($xray->chlidren))
+                                                @php
+                                                  $sbTotal = $xray->xray_cost + $xray->chlidren->sum('xray_cost');
+                                                @endphp
+                                              @else
+                                                @php
+                                                  $sbTotal = $xray->xray_cost;
+                                                @endphp
+                                              @endif
+
+                                              @php
+                                                echo number_format($sbTotal, 2);
+                                              @endphp
+
+                                            <td>
+                                              {!! $xray->xray_description !!}
+                                              @if(isset($xray->chlidren) && count($xray->chlidren))
+                                              <br>
+                                                {!! implode(",", $xray->chlidren->pluck('xray_description')->toArray()) !!}
+                                              @endif
+                                            </td>
                                         </tr>
                                         @php
-                                          $total  = $total + $xray->xray_cost; 
+                                          $total  = $total + $sbTotal; 
                                         @endphp
                                     @endforeach
                                       

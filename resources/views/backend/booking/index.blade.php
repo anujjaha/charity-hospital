@@ -17,7 +17,6 @@
             <h3 class="box-title">{{ isset($repository->moduleTitle) ? str_plural($repository->moduleTitle) : '' }} Listing</h3>
 
             <div class="box-tools pull-right">
-                @include('common.'.strtolower($repository->moduleTitle).'.header-buttons', ['createRoute' => $repository->getActionRoute('createRoute')])
             </div>
         </div>
 

@@ -44,7 +44,7 @@ class DashboardController extends Controller
     	}])
     	->get();
 
-        $xrays = PatientXRay::with(['patient', 'department'])
+        $xrays = PatientXRay::with(['patient', 'department', 'chlidren'])
             ->where('created_at', '>=', $startDate)
             ->where('created_at', '<=', $endDate)
             ->orderBy('id', 'desc')
