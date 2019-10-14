@@ -253,6 +253,8 @@
                                                         $sr++;
                                                     @endphp
                                                 @endforeach
+                                            @else
+                                                @sr = 1;
                                             @endif
                                             @for($i = $sr; $i <= 10; $i++)
                                                 <tr class="item-row">

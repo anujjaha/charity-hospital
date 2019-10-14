@@ -205,6 +205,9 @@ return [
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         App\Providers\HasherServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        
+        Backup\BackupServiceProvider::class,
+        
     ],
 
     /*
