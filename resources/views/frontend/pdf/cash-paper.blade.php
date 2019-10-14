@@ -226,6 +226,10 @@
                             </td>
                             <td>
                                 બીલ નં : <strong>{!! $booking->department_number !!}</strong><br>
+                                UNIQUE ID NO. : <strong>
+                                    {!!  $booking->patient->patient_number !!}
+                                </strong>
+                                <br>
                                 તારીખ : {!! date('d-m-Y', strtotime($booking->created_at)) !!}<br>
                                 મોબાઈલ નંબર : {!! $booking->patient->mobile !!}
                             </td>
