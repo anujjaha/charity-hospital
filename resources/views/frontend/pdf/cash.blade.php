@@ -285,7 +285,7 @@
                         <td colspan="2">
                             <table style="text-align:center;margin-top:15px;border-top:1px dotted #555;">
                                 <tr>
-                                    <td><h3 style="margin:0;padding-top:15px;padding-bottom:5px;">CASH RECCIEPT</h3>
+                                    <td><h3 style="margin:0;padding-top:15px;padding-bottom:5px;">CASH RECIEPT</h3>
                                    	સદવિચાર પરિવાર મેડિકલ સેન્ટર , ગોધરા</td>
                                 </tr>
                             </table>

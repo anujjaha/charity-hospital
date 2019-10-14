@@ -195,7 +195,6 @@
                     <tr class="information">
                         <td colspan="2">
                             <table>
-
                                 <tr style="text-align:center;line-height:1.6;">
                                     <td>SADVICHAR PRIVAR<br>
                                     <h3 style="margin:5px;">P. T. MIRANI EYE HOSPITAL<br>& ROTARY EYE CARE CENTER</h3>
@@ -215,16 +214,13 @@
                     </td>
                 </tr>
                 <tr class="border">
-                    <td>AGE : {!! $booking->patient->age !!} </td>
-                    <td style="width: 200px;text-align: left;">
+                    <td>AGE : {!! $booking->patient->age !!} 
+                        <br>
                         City : {!! $booking->patient->city !!} 
                     </td>
-                </tr>
-                <tr class="border">
-                    <td>
-                        Unique Number : {!! $booking->patient->patient_number !!}
-                    </td>
                     <td style="width: 200px;text-align: left;">
+                        Unique Number : {!! $booking->patient->patient_number !!}
+                        <br>
                         Bill Number : {!! $booking->department_number !!}<br>
                     </td>
                 </tr>
