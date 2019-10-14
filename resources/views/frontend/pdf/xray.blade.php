@@ -254,7 +254,9 @@
                                                     @endphp
                                                 @endforeach
                                             @else
-                                                $sr = 1;
+                                                @php
+                                                    $sr = 1;
+                                                @endphp
                                             @endif
                                             @for($i = $sr; $i <= 10; $i++)
                                                 <tr class="item-row">
