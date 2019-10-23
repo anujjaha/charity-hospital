@@ -4,19 +4,19 @@
     <meta charset="utf-8">
     <title>Invoice</title>
     
-    <style>
+     <style>
     @page {
-  size: A5;
-  margin:0px;
+  size: A4;
+  margin:20px;
 }
     .invoice-box {
-       width: 14.8cm;
-    min-height: 21cm;
-    padding:10px;
+       width: 21cm;
+    min-height: 29.7cm;
+    padding:15px;
         margin:0 auto;
         border: 1px solid #eee;
-        font-size: 13px;
-        line-height: 20px;
+        font-size: 16px;
+        line-height: 24px;
         font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
         color: #555;
     }
@@ -47,7 +47,7 @@
     }
     
     .invoice-box table tr.information table td {
-        padding-bottom:5px;
+        padding-bottom:10px;
     }
     
     .invoice-box table tr.heading td {
@@ -87,21 +87,21 @@
     .rtl table tr td:nth-child(2) {
         text-align: left;
     }
-    #items td{text-align:left;padding:0;height:22px;}
+    #items td{text-align:left;padding:0;height:24px;}
 @media print {
   html, body {
-    width: 148mm;
-    height: 210mm;
+    width: 210mm;
+    height: 297mm;
   }
 
     .invoice-box {
-       width: 14.8cm;
-    min-height: 21cm;
-    padding:10px;
+       width: 21cm;
+    min-height: 29.7cm;
+    padding:15px;
         margin:0;
         border: 1px solid #eee;
-        font-size: 13px;
-        line-height: 20px;
+        font-size: 16px;
+        line-height: 24px;
         font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
         color: #555;
     }
@@ -132,7 +132,7 @@
     }
     
     .invoice-box table tr.information table td {
-        padding-bottom:5px;
+        padding-bottom:10px;
     }
     
     .invoice-box table tr.heading td {
@@ -172,7 +172,7 @@
     .rtl table tr td:nth-child(2) {
         text-align: left;
     }
-    #items td{text-align:left;padding:0;height:22px;}
+    #items td{text-align:left;padding:0;height:24px;}
     }
     </style>
 </head>
