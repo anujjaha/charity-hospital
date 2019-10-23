@@ -5,17 +5,18 @@
     <title>Surgery Invoice</title>
     
     <style>
-	@page {
-  size: A4;
-  margin:20px;
+    @page {
+  size: A5;
+  margin:0px;
 }
     .invoice-box {
-       width: 21cm;
-    min-height: 29.7cm;
-    padding:15px;
+       width: 14.8cm;
+    min-height: 21cm;
+    padding:10px;
         margin:0 auto;
-        font-size: 16px;
-        line-height: 24px;
+        border: 1px solid #eee;
+        font-size: 13px;
+        line-height: 20px;
         font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
         color: #555;
     }
@@ -46,7 +47,7 @@
     }
     
     .invoice-box table tr.information table td {
-        padding-bottom:10px;
+        padding-bottom:5px;
     }
     
     .invoice-box table tr.heading td {
@@ -86,21 +87,21 @@
     .rtl table tr td:nth-child(2) {
         text-align: left;
     }
-	#items td{text-align:left;padding:0;height:24px;}
+    #items td{text-align:left;padding:0;height:22px;}
 @media print {
   html, body {
-    width: 210mm;
-    height: 297mm;
+    width: 148mm;
+    height: 210mm;
   }
 
     .invoice-box {
-       width: 21cm;
-    min-height: 29.7cm;
-    padding:15px;
+       width: 14.8cm;
+    min-height: 21cm;
+    padding:10px;
         margin:0;
         border: 1px solid #eee;
-        font-size: 16px;
-        line-height: 24px;
+        font-size: 13px;
+        line-height: 20px;
         font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
         color: #555;
     }
@@ -131,7 +132,7 @@
     }
     
     .invoice-box table tr.information table td {
-        padding-bottom:10px;
+        padding-bottom:5px;
     }
     
     .invoice-box table tr.heading td {
@@ -171,8 +172,8 @@
     .rtl table tr td:nth-child(2) {
         text-align: left;
     }
-	#items td{text-align:left;padding:0;height:24px;}
-	}
+    #items td{text-align:left;padding:0;height:22px;}
+    }
     </style>
 </head>
 

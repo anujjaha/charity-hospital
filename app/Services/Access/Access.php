@@ -8,6 +8,10 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use App\Repositories\Category\EloquentCategoryRepository;
 use App\Models\Booking\Booking;
 use App\Models\Department\Department;
+use App\Models\Backup\Backup;
+use Cache;
+use Artisan;
+use Storage;
 
 /**
  * Class Access.
@@ -287,5 +291,25 @@ public function user()
         }
 
         return 1;
+    }
+
+    public function takeBackup()
+    {
+        $date = (string) date('Y-m-d').'11';
+
+        if(Cache::has($date))
+        {
+            return;
+        }
+
+        Backup::create([
+            'user_id'       => 1,
+            'file_title'    => date('YmdHis'),
+            'description'   => 'Backup FILE Created successfully'
+        ]);
+        //$files =  Storage::allFiles();
+        Artisan::call('backup:mysql-dump');
+        Cache::put($date, 1, 1500);
+        return;
     }
 }

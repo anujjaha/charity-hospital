@@ -21,7 +21,7 @@
             </div><!-- /.box tools -->
         </div><!-- /.box-header -->
         <div class="btn btn-primary pull-right" style="margin-right: 10px; padding: 10px;">
-                Sync Now
+                
             </div>
         <div class="box-body">
             <form method="post" action="{!! route('admin.dashboard') !!}" id="filter">
@@ -63,10 +63,63 @@
         </div><!-- /.box-body -->
     </div><!--box box-success-->
 
+
     <div class="box box-success">
         <div class="box-header with-border">
             <h3 class="box-title">
                 X-Ray Summary
+            </h3>
+
+            <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div><!-- /.box tools -->
+        </div><!-- /.box-header -->
+        <div class="btn btn-primary pull-right" style="margin-right: 10px; padding: 10px;">
+                
+            </div>
+        <div class="box-body">
+            <form method="post" action="{!! route('admin.dashboard') !!}" id="filter">
+              <input class="datepicker" type="text" id="startDate1" name="startDate" value="{!! date('d-m-Y', strtotime($startDate)) !!}">
+             <input class="datepicker" type="text" id="endDate2" name="endDate" value="{!! date('d-m-Y', strtotime($endDate)) !!}">
+              {{ csrf_field() }}
+                <input type="submit" name="save-new" value="Filter"  class="btn btn-success mr-2 mt-1">
+
+            </form>
+             <table class="table">
+                <tr>
+                    <th>Department</th>
+                    <th>Total</th>
+                    <th>Print</th>
+                </tr>
+                @if(isset($xDetails) && count($xDetails))
+                    @foreach($xDetails as $xdata)
+                        <tr>
+                            <td>
+                            {!! $xdata->name !!}
+                            </td>
+                            <td>
+                                {!! $xdata->xrays->sum('xray_cost') !!}
+                            </td>
+                            <td>
+                                <a href="{!! route('frontend.user.xray.report-pdf',[
+                                  'department_id'  => $xdata->id,
+                                  'startDate' => $startDate,
+                                  'endDate'   => $endDate
+                                ])!!}" class="btn btn-primary mr-2 mt-1" target="_blank">
+                                  Print
+                                </a>
+                            </td>
+                        </tr>                    
+                    @endforeach
+                @endif
+            </table>
+        </div><!-- /.box-body -->
+    </div><!--box box-success-->
+
+    <div class="box box-success">
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                X-Ray Details
             </h3>
 
             <div class="box-tools pull-right">

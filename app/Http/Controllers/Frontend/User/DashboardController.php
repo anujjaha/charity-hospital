@@ -972,11 +972,27 @@ class DashboardController extends Controller
 
         if(access()->user()->id == 1)
         {
-            $data = PatientXRay::where('created_at', '>=', $startDate)
-            ->where('created_at', '<=', $endDate)
-            ->with(['patient'])
-            ->orderBy('id')
-            ->get();
+            $deptId = $request->has('department_id') ? $request->get('department_id')  : null;
+
+            if(isset($deptId))
+            {
+                $data = PatientXRay::where('department_id', $deptId)
+                ->where('created_at', '>=', $startDate)
+                ->where('created_at', '<=', $endDate)
+                ->where('parent_id', '=', NULL)
+                ->with(['patient'])
+                ->orderBy('id')
+                ->get();
+            }
+            else
+            {
+                $data = PatientXRay::where('created_at', '>=', $startDate)
+                ->where('created_at', '<=', $endDate)
+                ->where('parent_id', '=', NULL)
+                ->with(['patient'])
+                ->orderBy('id')
+                ->get();
+            }
 
             $departmentName = "Admin Report";
         }
@@ -985,6 +1001,7 @@ class DashboardController extends Controller
             $data = PatientXRay::with(['patient', 'department', 'chlidren'])->where('department_id', $department->id)
                 ->where('created_at', '>=', $startDate)
                 ->where('created_at', '<=', $endDate)
+                ->where('parent_id', '=', NULL)
                 ->with(['patient'])
                 ->orderBy('id')
                 ->get();

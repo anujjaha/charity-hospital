@@ -47,12 +47,21 @@ class DashboardController extends Controller
         $xrays = PatientXRay::with(['patient', 'department', 'chlidren'])
             ->where('created_at', '>=', $startDate)
             ->where('created_at', '<=', $endDate)
+            ->where('parent_id', '=', NULL)
             ->orderBy('id', 'desc')
             ->get();
-    	   
+    	
+        $xDetails = Department::with(['xrays' => function($q) use($startDate, $endDate)
+        {
+            return $q->where('created_at', '>=', $startDate)
+                ->where('created_at', '<=', $endDate);
+        }])
+        ->get();
+
     	return view('backend.dashboard')->with([
             'xrays'     => $xrays,
     		'bookings' 	=> $bookings,
+            'xDetails'  => $xDetails,
     		'startDate' => $startDate,
     		'endDate'	=> $endDate
     	]);

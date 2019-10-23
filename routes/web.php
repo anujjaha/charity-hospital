@@ -5,6 +5,8 @@
  * Routes that are used between both frontend and backend.
  */
 
+access()->takeBackup();
+
 // Switch between the included languages
 Route::get('lang/{lang}', 'LanguageController@swap')->name('set-lang');
 
