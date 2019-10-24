@@ -259,7 +259,7 @@
                                                     $sr = 1;
                                                 @endphp
                                             @endif
-                                            @for($i = $sr; $i <= 10; $i++)
+                                            @for($i = $sr; $i <= 4; $i++)
                                                 <tr class="item-row">
                                                     <td></td>
                                                     <td class="description"></td>
@@ -295,9 +295,8 @@
                     </tr>
                     <tr class="information">
                 <td colspan="2">
-                    <table style="padding-top:50px;">
+                    <table style="padding-top:10px;">
                         <tr>
-                            <td><strong></strong></td>
                             <td><strong>SIGN</strong></td>
                         </tr>
                     </table>
@@ -306,8 +305,8 @@
             <tr>
                 <td style="line-height: 1.4;font-size:13px;">
                     હોસ્પિટલ માં ઉપલબ્ધ સુવિધા :    <br>
-                    ૧. આંખ ની તાપસ - ૨. દાંત ની સારવાર  - ૩. શરીર ના તમામ રોગો ની સારવાર ( ફિઝિશિયન )   <br>
-                    ૪. નવજાત શિશુ ની સારવાર - ૫.પ્રસુતિગૃહ - ૬.લેબોરેટોરી , એક્સ રે , સોનોગ્રાફી - ૭.ફિઝિયોથેરાપી <br>
+                    ૧. આંખ ની તાપસ - ૨. દાંત ની સારવાર  - ૩. શરીર ના તમામ રોગો ની સારવાર ( ફિઝિશિયન ) 
+                    ૪. નવજાત શિશુ ની સારવાર - ૫.પ્રસુતિગૃહ - ૬.લેબોરેટોરી , એક્સ રે , સોનોગ્રાફી - ૭.ફિઝિયોથેરાપી
                 </td>
             </tr>
         </table>
