@@ -6,6 +6,9 @@
 </style>
 <center><h1>X-Ray Report</h1>
     <h3> Department : {!! $departmentName !!}
+        <br>
+        Report for {!! date('d-m-Y', strtotime($startDate)) !!} to {!! date('d-m-Y', strtotime($endDate)) !!} </h3>
+        
 </center>
 <table style="border: 2px solid; width: 100%">
     <tr>
