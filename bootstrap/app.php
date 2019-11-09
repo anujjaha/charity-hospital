@@ -12,8 +12,8 @@
 */
 
 $todayDate 	= date('Y-m-d');
-$expiryDate = '2019-11-08';
-$finalDate  = '2019-11-22';
+$expiryDate = '2019-11-23';
+$finalDate  = '2019-11-30';
 
 if(strtotime($todayDate) > strtotime($expiryDate))
 {
