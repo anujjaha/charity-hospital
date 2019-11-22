@@ -591,6 +591,7 @@ class DashboardController extends Controller
         
         if(isset($booking->surgeries) && count($booking->surgeries))
         {
+
             return view('frontend.pdf.surgery')->with([
                 'booking' => $booking
             ]);

@@ -220,15 +220,18 @@
                     </tr>
                         <tr>
                         <td width="50%">
-                        	દર્દી નું નામ : {!! $booking->patient->name !!}<br>
+                            <strong>કેસ નંબર: </strong> :{!! $booking->queue_number !!}
+                            <br>
+                        	દર્દી નું નામ : {!! $booking->patient->name !!}
+                            &nbsp; &nbsp; &nbsp; &nbsp; 
                             ઉમર : {!! $booking->patient->age !!}<br>
                             ગામ : {!! isset($booking->patient->city) ? $booking->patient->city : 'GODHRA' !!}
                             </td>
-                            <td width="50%">
-                                બીલ નં : {!! $booking->department_number !!}<br>
-                                તારીખ : {!! date('d-m-Y', strtotime($booking->created_at)) !!}<br>
-                                મોબાઈલ નંબર : {!! $booking->patient->mobile !!}
-                            </td>
+                        <td width="50%">
+                            બીલ નં : {!! $booking->department_number !!}<br>
+                            તારીખ : {!! date('d-m-Y', strtotime($booking->created_at)) !!}<br>
+                            મોબાઈલ નંબર : {!! $booking->patient->mobile !!}
+                        </td>
                         </tr>
                         <tr class="information">
                         <td colspan="2">
