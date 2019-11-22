@@ -194,16 +194,17 @@
                     </tr>
                     
                         <tr>
-                        <td>
+                        <td width="50%">
                             દર્દી નું નામ : {!! $xray->patient->name !!}<br>
                             ઉમર : {!! $xray->patient->age !!}<br>
                             ગામ : {!! isset($xray->patient->city) ? $xray->patient->city : 'GODHRA' !!}
                             </td>
-                            <td>
-                                બીલ નં : {!! $xray->id !!}<br>
-                                તારીખ : {!! date('d-m-Y', strtotime($xray->created_at)) !!}<br>
-                                મોબાઈલ નંબર : {!! $xray->patient->mobile !!} 
-                            </td>
+                        <td width="50%">
+                            બીલ નં : {!! $xray->id !!}<br>
+                            તારીખ : {!! date('d-m-Y', strtotime($xray->created_at)) !!}
+                            <br>
+                            મોબાઈલ નંબર : {!! $xray->patient->mobile !!} 
+                        </td>
                         </tr>
                         <tr class="information">
                         <td colspan="2">

@@ -219,12 +219,15 @@
                         </td>
                     </tr>
                         <tr>
-                        <td>
-                        	દર્દી નું નામ : {!! $booking->patient->name !!}<br>
+                        <td width="50%">
+                            <strong>કેસ નંબર: </strong> :{!! $booking->queue_number !!}
+                            <br>
+                        	દર્દી નું નામ : {!! $booking->patient->name !!}
+                            <br>
                             ઉમર : {!! $booking->patient->age !!}<br>
                             ગામ : {!! isset($booking->patient->city) ? $booking->patient->city : 'GODHRA' !!}
                             </td>
-                            <td>
+                            <td width="50%">
                                 બીલ નં : <strong>{!! $booking->department_number !!}</strong><br>
                                 UNIQUE ID NO. : <strong>
                                     {!!  $booking->patient->patient_number !!}
